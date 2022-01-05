@@ -1,0 +1,33 @@
+profilePicture = "/images/profile.jpg"
+title = "I'm Nicolas Vanden Bossche"
+author = "Nicolas Vanden Bossche"
+description = """
+    Call me Nicolas. 
+    I'm a Software Engineer at heart and Salesforce architect by day.
+    """
+favicon = "/favicons/"
+displayMode = "dark"
+indexDateFormat = "January 2, 2006"
+oldContentWarning = true
+oldContentDuration = 365
+copyright = "{{ YEAR }} Nicolas Vanden Bossche"
+
+[[socialIcons]]
+icon = "fab fa-linkedin"
+title = "Linkedin"
+url = "https://www.linkedin.com/in/nicolas-vanden-bossche/"
+
+[[socialIcons]]
+icon = "fab fa-twitter"
+title = "Twitter"
+url = "https://twitter.com/nvandenbossche/"
+
+[[socialIcons]]
+icon = "fab fa-salesforce"
+title = "Trailblazer.me"
+url = "https://trailblazer.me/id/nvandenbossche"
+
+[[socialIcons]]
+icon = "fab fa-github"
+title = "Github"
+url = "https://github.com/nvandenbossche"

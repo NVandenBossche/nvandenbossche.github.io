@@ -1,0 +1,25 @@
+# Standard Hugo config
+
+baseURL = 'https://nicolasvandenbossche.com/'
+languageCode = "en-us"
+title = "Nicolas Vanden Bossche"
+theme = "anatole"
+
+# Anatole theme general config
+
+defaultContentLanguage = "en"
+summarylength = 10
+enableEmoji = true
+enableRobotsTXT = true
+
+# Google Analytics
+
+# Syntax highlighting
+pygmentsUseClasses = true   
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true 
+
+[markup]
+    [markup.goldmark]
+        [markup.goldmark.renderer]
+            unsafe=true
