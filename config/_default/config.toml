@@ -1,6 +1,6 @@
 # Standard Hugo config
 
-baseURL = 'https://nicolasvandenbossche.com/'
+baseURL = 'https://nvandenbossche.github.io/'
 languageCode = "en-us"
 title = "Nicolas Vanden Bossche"
 theme = "anatole"
