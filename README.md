@@ -1,2 +1,4 @@
-# nvandenbossche.github.io
-My personal website
+---
+layout: forward
+target: /public/index.html
+---

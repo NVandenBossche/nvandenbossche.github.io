@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nicolas Vanden Bossche</title>
+    <link>https://nicolasvandenbossche.com/</link>
+    <description>Recent content on Nicolas Vanden Bossche</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 05 Jan 2022 12:28:47 +0100</lastBuildDate><atom:link href="https://nicolasvandenbossche.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My First Post using Hugo</title>
+      <link>https://nicolasvandenbossche.com/posts/my-first-post/</link>
+      <pubDate>Wed, 05 Jan 2022 12:28:47 +0100</pubDate>
+      
+      <guid>https://nicolasvandenbossche.com/posts/my-first-post/</guid>
+      
+        <description></description>
+      
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://nicolasvandenbossche.com/about/</link>
+      <pubDate>Wed, 05 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://nicolasvandenbossche.com/about/</guid>
+      
+        <description>Nicolas is making his first website in Hugo and is having fun while doing so.</description>
+      
+    </item>
+    
+  </channel>
+</rss>
