@@ -1,9 +1,9 @@
 profilePicture = "/images/profile.jpg"
-title = "I'm Nicolas Vanden Bossche"
+title = "NICOLAS VANDEN BOSSCHE"
 author = "Nicolas Vanden Bossche"
 description = """
-    Call me Nicolas. 
-    I'm a Software Engineer at heart and Salesforce architect by day.
+    /nikɔla/
+    Technophile, dad, and Salesforce architect.
     """
 favicon = "/favicons/"
 displayMode = "dark"
