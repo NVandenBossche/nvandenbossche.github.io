@@ -1,9 +1,9 @@
 profilePicture = "/images/profile.jpg"
 title = "NICOLAS VANDEN BOSSCHE"
-author = "Nicolas Vanden Bossche"
+author = "Nicolas' Blog"
 description = """
     /nikɔla/
-    Technophile, dad, and Salesforce architect.
+    Technophile, dad, Salesforce architect.
     """
 favicon = "/favicons/"
 displayMode = "dark"
