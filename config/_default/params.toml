@@ -1,6 +1,7 @@
 profilePicture = "/images/profile.jpg"
+reversepagetitle = true
 title = "NICOLAS VANDEN BOSSCHE"
-author = "Nicolas' Blog"
+author = "Nicolas Vanden Bossche"
 description = """
     /nikɔla/
     Technophile, dad, Salesforce architect.
