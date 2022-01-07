@@ -1,7 +1,7 @@
 ---
 title: "This is my story"
-date: 2022-01-06T10:50:00+01:00
-draft: true
+date: 2022-01-07T14:46:00+01:00
+draft: false
 ---
 
 ![Picture of the opening scene of Final Fantasy X, showing the Zanarkand Ruins](/images/zanarkand.jpg "Zanarkand Ruins from Final Fantasy X")
