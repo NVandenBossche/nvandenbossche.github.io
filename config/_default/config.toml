@@ -2,7 +2,7 @@
 
 baseURL = 'https://nicolasvandenbossche.com/'
 languageCode = "en-us"
-title = "Nicolas Vanden Bossche"
+title = "Home"
 theme = "anatole"
 
 # Anatole theme general config
