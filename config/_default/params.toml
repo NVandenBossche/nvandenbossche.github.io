@@ -12,6 +12,7 @@ indexDateFormat = "January 2, 2006"
 oldContentWarning = true
 oldContentDuration = 365
 copyright = "{{ YEAR }} Nicolas Vanden Bossche"
+readMore = true
 
 [[socialIcons]]
 icon = "fab fa-linkedin"

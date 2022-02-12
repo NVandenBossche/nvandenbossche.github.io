@@ -1,6 +1,12 @@
 ---
 title: "This is my story"
 date: 2022-01-07T14:46:00+01:00
+tags: [
+"meta",
+"future"
+]
+thumbnail: "/images/zanarkand.jpg"
+summary: "Welcome to my personal website and blog. This is a first post explaining what you can expect here in the future."
 draft: false
 ---
 
