@@ -746,7 +746,6 @@ Language Switch
 
 .list-with-title .listing .listing-post .post-time {
     float: right;
-    display: inline-block;
     max-width: 10%;
     text-align: right;
     color: #c5c5c5;
