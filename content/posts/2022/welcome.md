@@ -5,7 +5,7 @@ tags: [
 "meta",
 "future"
 ]
-thumbnail: "/images/zanarkand.jpg"
+thumbnail: "/images/zanarkand_thumbnail.jpg"
 summary: "Welcome to my personal website and blog. This is a first post explaining what you can expect here in the future."
 draft: false
 ---
