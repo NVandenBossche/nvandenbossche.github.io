@@ -2,7 +2,7 @@
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 tags: []
-thumbnail: ""
+thumbnail: "/images/posts/2022/"
 summary: ""
 draft: true
 ---
