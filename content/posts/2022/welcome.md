@@ -5,12 +5,12 @@ tags: [
 "meta",
 "future"
 ]
-thumbnail: "/images/zanarkand_thumbnail.jpg"
+thumbnail: "/images/posts/2022/welcome/zanarkand_thumbnail.jpg"
 summary: "Welcome to my personal website and blog. This is a first post explaining what you can expect here in the future."
 draft: false
 ---
 
-![Picture of the opening scene of Final Fantasy X, showing the Zanarkand Ruins](/images/zanarkand.jpg "Zanarkand Ruins from Final Fantasy X")
+![Picture of the opening scene of Final Fantasy X, showing the Zanarkand Ruins](/images/posts/2022/welcome/zanarkand.jpg "Zanarkand Ruins from Final Fantasy X")
 
 Welcome to my personal website and blog.
 
