@@ -1,0 +1,177 @@
+<!doctype html><html dir=ltr lang=en data-theme=dark class=html><head>
+<title>
+Creating a new website using Hugo |
+Nicolas Vanden Bossche
+</title>
+<meta charset=utf-8><meta name=generator content="Hugo 0.91.2"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name=author content="Nicolas Vanden Bossche">
+<meta name=description content="
+          /nikɔla/
+    Technophile, dad, Salesforce architect, CTA.
+    
+
+
+    ">
+<link rel=stylesheet href=/scss/main.min.81e79ce9d0aae08798fcc2d6d3b2fe944df51cfbde32e5072de8364c3cac2de1.css integrity="sha256-geec6dCq4IeY/MLW07L+lE31HPveMuUHLeg2TDysLeE=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=/css/markupHighlight.min.31b0a1f317f55c529a460897848c97436bb138b19c399b37de70d463a8bf6ed5.css integrity="sha256-MbCh8xf1XFKaRgiXhIyXQ2uxOLGcOZs33nDUY6i/btU=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=/fontawesome/css/fontawesome.min.69685904d5c2a0c6258d03c207b778c10466edf6cea928cc0164c376b0ad0930.css integrity="sha256-aWhZBNXCoMYljQPCB7d4wQRm7fbOqSjMAWTDdrCtCTA=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=/fontawesome/css/solid.min.6d585e78d28cce1200d39fb133c92ed83df01738da721d0f48fb6eac62d24e04.css integrity="sha256-bVheeNKMzhIA05+xM8ku2D3wFzjach0PSPturGLSTgQ=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=/fontawesome/css/brands.min.6b00d96498d59caa0dbcf9b49d30d821915291f2ceb0e19248523c8607ff43fa.css integrity="sha256-awDZZJjVnKoNvPm0nTDYIZFSkfLOsOGSSFI8hgf/Q/o=" crossorigin=anonymous type=text/css>
+<link rel="shortcut icon" href=/favicons/favicon.ico type=image/x-icon>
+<link rel=apple-touch-icon sizes=180x180 href=/favicons/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicons/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicons/favicon-16x16.png>
+<link rel=canonical href=https://nicolasvandenbossche.com/posts/2022/website-using-hugo/>
+<script type=text/javascript src=/js/anatole-header.min.46e6a54097480084f8f52c20ca1aa7425b4fad17029a887fd4017b12e311a72d.js integrity="sha256-RualQJdIAIT49SwgyhqnQltPrRcCmoh/1AF7EuMRpy0=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/anatole-theme-switcher.min.5557c8ff5617a01067ac258fd70b9b992506e379317b0da51e5e0f6e018b408a.js integrity="sha256-VVfI/1YXoBBnrCWP1wubmSUG43kxew2lHl4PbgGLQIo=" crossorigin=anonymous></script>
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Creating a new website using Hugo">
+<meta name=twitter:description content="As someone who&rsquo;s passionate about technology, I love to pick up a new technology every now and then. Discover the world of Hugo, a static site generator built with the Go language.">
+<meta property="og:title" content="Creating a new website using Hugo">
+<meta property="og:description" content="As someone who&rsquo;s passionate about technology, I love to pick up a new technology every now and then. Discover the world of Hugo, a static site generator built with the Go language.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nicolasvandenbossche.com/posts/2022/website-using-hugo/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2022-05-11T12:28:47+01:00">
+<meta property="article:modified_time" content="2022-05-11T12:28:47+01:00"><meta property="og:site_name" content="NICOLAS VANDEN BOSSCHE">
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","articleSection":"posts","name":"Creating a new website using Hugo","headline":"Creating a new website using Hugo","alternativeHeadline":"","description":"
+      
+        As someone who\u0026rsquo;s passionate about technology, I love to pick up a new technology every now and then. Discover the world of Hugo, a static site generator built with the Go language.
+
+
+      
+
+
+    ","inLanguage":"en-us","isFamilyFriendly":"true","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/nicolasvandenbossche.com\/posts\/2022\/website-using-hugo\/"},"author":{"@type":"Person","name":"Nicolas Vanden Bossche"},"creator":{"@type":"Person","name":"Nicolas Vanden Bossche"},"accountablePerson":{"@type":"Person","name":"Nicolas Vanden Bossche"},"copyrightHolder":{"@type":"Person","name":"Nicolas Vanden Bossche"},"copyrightYear":"2022","dateCreated":"2022-05-11T12:28:47.00Z","datePublished":"2022-05-11T12:28:47.00Z","dateModified":"2022-05-11T12:28:47.00Z","publisher":{"@type":"Organization","name":"Nicolas Vanden Bossche","url":"https://nicolasvandenbossche.com/","logo":{"@type":"ImageObject","url":"https:\/\/nicolasvandenbossche.com\/favicons\/favicon-32x32.png","width":"32","height":"32"}},"image":[],"url":"https:\/\/nicolasvandenbossche.com\/posts\/2022\/website-using-hugo\/","wordCount":"857","genre":[],"keywords":["hugo","website"]}</script>
+</head>
+<body class="body theme--dark">
+<div class=wrapper>
+<aside class=wrapper__sidebar><div class="sidebar
+animated fadeInDown">
+<div class=sidebar__content>
+<div class=sidebar__introduction>
+<img class=sidebar__introduction-profileimage src=/images/profile.jpg alt="profile picture">
+<h1 class=sidebar__introduction-title>
+<a href=/>NICOLAS VANDEN BOSSCHE</a>
+</h1>
+<div class=sidebar__introduction-description>
+<p> /nikɔla/<br> Technophile, dad, Salesforce architect, CTA.<br> </p>
+</div>
+</div>
+<ul class=sidebar__list>
+<li class=sidebar__list-item>
+<a href=https://www.linkedin.com/in/nicolas-vanden-bossche/ rel=me aria-label=Linkedin title=Linkedin>
+<i class="fab fa-linkedin fa-2x" aria-hidden=true></i>
+</a>
+</li>
+<li class=sidebar__list-item>
+<a href=https://twitter.com/nvandenbossche/ rel=me aria-label=Twitter title=Twitter>
+<i class="fab fa-twitter fa-2x" aria-hidden=true></i>
+</a>
+</li>
+<li class=sidebar__list-item>
+<a href=https://trailblazer.me/id/nvandenbossche rel=me aria-label=Trailblazer.me title=Trailblazer.me>
+<i class="fab fa-salesforce fa-2x" aria-hidden=true></i>
+</a>
+</li>
+<li class=sidebar__list-item>
+<a href=https://github.com/nvandenbossche rel=me aria-label=Github title=Github>
+<i class="fab fa-github fa-2x" aria-hidden=true></i>
+</a>
+</li>
+</ul>
+</div><footer class="footer footer__sidebar">
+<ul class=footer__list>
+<li class=footer__item>
+&copy;
+2022 Nicolas Vanden Bossche
+</li>
+</ul>
+</footer>
+<script type=text/javascript src=/js/medium-zoom.min.fae9ac8895995fe91958b3954be11e96025824a04770726a3531e119ddd2d576.js integrity="sha256-+umsiJWZX+kZWLOVS+EelgJYJKBHcHJqNTHhGd3S1XY=" crossorigin=anonymous></script></div>
+</aside>
+<main class=wrapper__main>
+<header class=header><div class="animated fadeInDown">
+<a role=button class=navbar-burger data-target=navMenu aria-label=menu aria-expanded=false>
+<span aria-hidden=true class=navbar-burger__line></span>
+<span aria-hidden=true class=navbar-burger__line></span>
+<span aria-hidden=true class=navbar-burger__line></span>
+</a>
+<nav class=nav>
+<ul class=nav__list id=navMenu>
+<li class=nav__list-item>
+<a href=/ title>Home</a>
+</li>
+<li class=nav__list-item>
+<a href=/posts/ title>Posts</a>
+</li>
+<li class=nav__list-item>
+<a href=/about/ title>About</a>
+</li>
+</ul>
+<ul class="nav__list nav__list--end">
+<li class=nav__list-item>
+<div class=themeswitch>
+<a title="Switch Theme">
+<i class="fas fa-adjust fa-fw" aria-hidden=true></i>
+</a>
+</div>
+</li>
+</ul>
+</nav>
+</div>
+</header>
+<div class="post
+animated fadeInDown">
+<div class=post__content>
+<h1>Creating a New Website Using Hugo</h1>
+<figure class=small><img src=/images/posts/2022/hugo/hugo.svg alt="Logo of the Hugo framework">
+</figure>
+<p>As someone who&rsquo;s passionate about technology, I love to pick up a new technology every now and then. Some time ago, I read a blog post about how to create a personal website and how static websites were a great fit for that.</p>
+<p>A static website is a pre-generated website where each page has a corresponding HTML page, just like it was done in the early days of the web. Nowadays we prefer dynamic websites with a back-end server that is generating pages on the fly because it offers more flexibility and a better user experience.</p>
+<p>There are good reasons why a static site is a better fit for a personal website: easy to maintain with the right framework, quick to build, secure, easier SEO (Search Engine Optimization), and so on. The framework that I decided to try out is <a href=https://gohugo.io/ title="The world’s fastest framework for building websites">Hugo</a>. It&rsquo;s written in <a href=https://golang.org/ title="Go Language">Go</a> and optimized for speed, ease of use and configurability.</p>
+<p>Keep reading to learn more about how I&rsquo;ve set up this website over a single weekend.</p>
+<h2 id=preparation>Preparation</h2>
+<p>First, I made sure that I had all of the necessary pre-requisites checked or at least had a plan for it. This was my checklist:</p>
+<ul>
+<li><input disabled type=checkbox> Register a domain name.</li>
+<li><input disabled type=checkbox> Find out how to register a DNS lookup for that domain name.</li>
+<li><input disabled type=checkbox> Find space to host website.</li>
+<li><input disabled type=checkbox> Learn more about the Hugo framework.</li>
+</ul>
+<p>Since this was just going to be a trial run, I looked for an option that wouldn&rsquo;t cost a lot and soon ended up navigating to <a href=https://aws.amazon.com/ title="Amazon Web Services">AWS</a>. Registering a domain name was straightforward using Amazon Route 53, and Jeff Bezos was more than happy to munch on my credit card details. Setting the DNS lookup was also possible on Route 53, but I kept that for when I would have a first post ready.</p>
+<p><img src=/images/posts/2022/hugo/domainname.png alt="Screenshot of domain name setup" title="Screenshot showing the setup of nicolasvandenbossche.com domain"></p>
+<p>Hosting my website became a piece of cake once I realised that GitHub provides you with limited free hosting space linked to your GitHub user, called <a href=https://pages.github.com/>GitHub Pages</a>. There&rsquo;s even a <a href=https://gohugo.io/hosting-and-deployment/hosting-on-github/>step-by-step tutorial</a> of how to host a Hugo website on your GitHub Pages.</p>
+<p>Finally, I read the main articles on the Hugo website and quickly realized I would learn faster while doing. So I created my GitHub repo, cloned it, and got VS Code up and running. My checklist was complete and I was ready to rumble!</p>
+<h2 id=local-development>Local Development</h2>
+<p>Following the <a href=https://gohugo.io/getting-started/quick-start/>Quick Start</a> tutorial, I soon had to make a decision: which theme did I want for my initial version. It took some time to choose the right theme because layout and visuals are important, and ended up with Anatole. It has a great minimalistic home page and the wonderful dark mode feature, as you can see in an example below (or by navigating to my home page!).</p>
+<p><img src=/images/posts/2022/hugo/anatole_dark.png alt="Anatole-themed website" title="Screenshot of an example Anatole-themed website."></p>
+<p>Purely leveraging the instructions on the Quick Start and the theme&rsquo;s readme, I was up and running in no time with the help of my good friend localhost. A key thing to note is that one of the steps of generating the static website requires you to run the <code>hugo</code> command. This will generate the HTML, CSS and JavaScript that powers the static site.</p>
+<h2 id=making-it-my-own>Making it my Own</h2>
+<p>Following a tutorial and running things locally is usually the easy part. Now I needed to customise the site so that it reflects who I am.
+Changing the main profile picture, the subtext, and the social icons was straightforward as explained in the Anatole documentation. Even the Salesforce &ldquo;social&rdquo; icon is supported! After a lot of thought, I decided to leave out Myspace.</p>
+<p>One aspect to working with pictures in Hugo, is that they should be stored in the <em>static</em> folder of your repository. This is because Hugo will manage these pictures as static resources that can be referenced from within your content. Nothing too extraordinary, but it can be confusing if you&rsquo;re used to referencing files relative to the location of the content file.</p>
+<p><img src=/images/posts/2022/hugo/profile.png alt="Profile updates made to the theme" title="Screenshot of how I tweaked the Anatole theme with a personal profile picture, text and social icons, including a link to my Trailblazer.me profile."></p>
+<h2 id=publishing-the-initial-version>Publishing the Initial version</h2>
+<p>Having run this thing locally, I naively thought my website would work by pushing things into my GitHub Pages repo. Remember when I told you about the key understanding of how the static site is generated - yes we still need to run <code>hugo</code>!</p>
+<p>Luckily GitHub offers a CI/CD mechanism called GitHub Actions that allowed me to do exactly that with every commit to the main branch of my repo. By copying and slightly tweaking an official <a href=https://gohugo.io/hosting-and-deployment/hosting-on-github/#build-hugo-with-github-action>example</a>, I was finally able to see the first version shine out on the public internet!</p>
+<h2 id=finishing-touches>Finishing Touches</h2>
+<p>As a final step, there was still the matter of enabling the DNS lookup. This took some time to get right because I wasn&rsquo;t used to how Route 53 worked and neither am I a networking expert. In the end I just had to listen to Aragorn.</p>
+<p><img src=/images/posts/2022/hugo/meme_dns.jpg alt="DNS Meme" title="Aragorn saying: One does not simply... 'Refresh' the DNS cache."></p>
+<h2 id=summary>Summary</h2>
+<p>It all started out with trying to set up a very simple website. I dove into the Hugo rabbit hole and ended up with a beautiful combination of technologies: a website hosted on GitHub containing a minimalistic, good-lookcing, static website generated by Hugo through GitHub Actions, accessible via nicolasvandenbossche.com via AWS Route 53. A great learning experience and a cool result!</p>
+</div>
+<div class=post__footer>
+<span><a class=tag href=/tags/hugo/>hugo</a><a class=tag href=/tags/website/>website</a></span>
+</div>
+</div>
+</main>
+</div><footer class="footer footer__base">
+<ul class=footer__list>
+<li class=footer__item>
+&copy;
+2022 Nicolas Vanden Bossche
+</li>
+</ul>
+</footer>
+<script type=text/javascript src=/js/medium-zoom.min.fae9ac8895995fe91958b3954be11e96025824a04770726a3531e119ddd2d576.js integrity="sha256-+umsiJWZX+kZWLOVS+EelgJYJKBHcHJqNTHhGd3S1XY=" crossorigin=anonymous></script></body>
+</html>
