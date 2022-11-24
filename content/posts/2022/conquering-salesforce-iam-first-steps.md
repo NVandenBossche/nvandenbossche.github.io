@@ -1,6 +1,6 @@
 ---
 title: "Conquering Salesforce IAM - First Steps"
-date: 2022-11-23T20:13:57+01:00
+date: 2022-11-24T08:13:57+01:00
 tags: [salesforce, iam, identity]
 thumbnail: "/images/posts/2022/conquering-salesforce-iam/IAM-Architect.png"
 summary: "Read the introduction to a long-running series on Identity & Access Management for Salesforce. We'll take a journey together by taking small, sizeable steps into the world of Salesforce IAM."
