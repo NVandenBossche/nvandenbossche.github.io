@@ -1,0 +1,165 @@
+<!doctype html><html dir=ltr lang=en data-theme=dark class=html><head>
+<title>
+Conquering Salesforce IAM - First Steps |
+Nicolas Vanden Bossche
+</title>
+<meta charset=utf-8><meta name=generator content="Hugo 0.91.2"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name=author content="Nicolas Vanden Bossche">
+<meta name=description content="
+          /nikɔla/
+    Technophile, dad, Salesforce architect, CTA.
+    
+
+
+    ">
+<link rel=stylesheet href=/scss/main.min.81e79ce9d0aae08798fcc2d6d3b2fe944df51cfbde32e5072de8364c3cac2de1.css integrity="sha256-geec6dCq4IeY/MLW07L+lE31HPveMuUHLeg2TDysLeE=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=/css/markupHighlight.min.31b0a1f317f55c529a460897848c97436bb138b19c399b37de70d463a8bf6ed5.css integrity="sha256-MbCh8xf1XFKaRgiXhIyXQ2uxOLGcOZs33nDUY6i/btU=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=/fontawesome/css/fontawesome.min.69685904d5c2a0c6258d03c207b778c10466edf6cea928cc0164c376b0ad0930.css integrity="sha256-aWhZBNXCoMYljQPCB7d4wQRm7fbOqSjMAWTDdrCtCTA=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=/fontawesome/css/solid.min.6d585e78d28cce1200d39fb133c92ed83df01738da721d0f48fb6eac62d24e04.css integrity="sha256-bVheeNKMzhIA05+xM8ku2D3wFzjach0PSPturGLSTgQ=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=/fontawesome/css/brands.min.6b00d96498d59caa0dbcf9b49d30d821915291f2ceb0e19248523c8607ff43fa.css integrity="sha256-awDZZJjVnKoNvPm0nTDYIZFSkfLOsOGSSFI8hgf/Q/o=" crossorigin=anonymous type=text/css>
+<link rel="shortcut icon" href=/favicons/favicon.ico type=image/x-icon>
+<link rel=apple-touch-icon sizes=180x180 href=/favicons/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicons/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicons/favicon-16x16.png>
+<link rel=canonical href=https://nicolasvandenbossche.com/posts/2022/conquering-salesforce-iam-first-steps/>
+<script type=text/javascript src=/js/anatole-header.min.46e6a54097480084f8f52c20ca1aa7425b4fad17029a887fd4017b12e311a72d.js integrity="sha256-RualQJdIAIT49SwgyhqnQltPrRcCmoh/1AF7EuMRpy0=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/anatole-theme-switcher.min.5557c8ff5617a01067ac258fd70b9b992506e379317b0da51e5e0f6e018b408a.js integrity="sha256-VVfI/1YXoBBnrCWP1wubmSUG43kxew2lHl4PbgGLQIo=" crossorigin=anonymous></script>
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Conquering Salesforce IAM - First Steps">
+<meta name=twitter:description content="Read the introduction to a long-running series on Identity & Access Management for Salesforce. We&rsquo;ll take a journey together by taking small, sizeable steps into the world of Salesforce IAM.">
+<meta property="og:title" content="Conquering Salesforce IAM - First Steps">
+<meta property="og:description" content="Read the introduction to a long-running series on Identity & Access Management for Salesforce. We&rsquo;ll take a journey together by taking small, sizeable steps into the world of Salesforce IAM.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nicolasvandenbossche.com/posts/2022/conquering-salesforce-iam-first-steps/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2022-11-24T08:13:57+01:00">
+<meta property="article:modified_time" content="2022-11-24T08:13:57+01:00"><meta property="og:site_name" content="NICOLAS VANDEN BOSSCHE">
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","articleSection":"posts","name":"Conquering Salesforce IAM - First Steps","headline":"Conquering Salesforce IAM - First Steps","alternativeHeadline":"","description":"
+      
+        Read the introduction to a long-running series on Identity \u0026amp; Access Management for Salesforce. We\u0026rsquo;ll take a journey together by taking small, sizeable steps into the world of Salesforce IAM.
+
+
+      
+
+
+    ","inLanguage":"en-us","isFamilyFriendly":"true","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/nicolasvandenbossche.com\/posts\/2022\/conquering-salesforce-iam-first-steps\/"},"author":{"@type":"Person","name":"Nicolas Vanden Bossche"},"creator":{"@type":"Person","name":"Nicolas Vanden Bossche"},"accountablePerson":{"@type":"Person","name":"Nicolas Vanden Bossche"},"copyrightHolder":{"@type":"Person","name":"Nicolas Vanden Bossche"},"copyrightYear":"2022","dateCreated":"2022-11-24T08:13:57.00Z","datePublished":"2022-11-24T08:13:57.00Z","dateModified":"2022-11-24T08:13:57.00Z","publisher":{"@type":"Organization","name":"Nicolas Vanden Bossche","url":"https://nicolasvandenbossche.com/","logo":{"@type":"ImageObject","url":"https:\/\/nicolasvandenbossche.com\/favicons\/favicon-32x32.png","width":"32","height":"32"}},"image":[],"url":"https:\/\/nicolasvandenbossche.com\/posts\/2022\/conquering-salesforce-iam-first-steps\/","wordCount":"456","genre":[],"keywords":["salesforce","iam","identity"]}</script>
+</head>
+<body class="body theme--dark">
+<div class=wrapper>
+<aside class=wrapper__sidebar><div class="sidebar
+animated fadeInDown">
+<div class=sidebar__content>
+<div class=sidebar__introduction>
+<img class=sidebar__introduction-profileimage src=/images/profile.jpg alt="profile picture">
+<h1 class=sidebar__introduction-title>
+<a href=/>NICOLAS VANDEN BOSSCHE</a>
+</h1>
+<div class=sidebar__introduction-description>
+<p> /nikɔla/<br> Technophile, dad, Salesforce architect, CTA.<br> </p>
+</div>
+</div>
+<ul class=sidebar__list>
+<li class=sidebar__list-item>
+<a href=https://www.linkedin.com/in/nicolas-vanden-bossche/ rel=me aria-label=Linkedin title=Linkedin>
+<i class="fab fa-linkedin fa-2x" aria-hidden=true></i>
+</a>
+</li>
+<li class=sidebar__list-item>
+<a href=https://twitter.com/nvandenbossche/ rel=me aria-label=Twitter title=Twitter>
+<i class="fab fa-twitter fa-2x" aria-hidden=true></i>
+</a>
+</li>
+<li class=sidebar__list-item>
+<a href=https://trailblazer.me/id/nvandenbossche rel=me aria-label=Trailblazer.me title=Trailblazer.me>
+<i class="fab fa-salesforce fa-2x" aria-hidden=true></i>
+</a>
+</li>
+<li class=sidebar__list-item>
+<a href=https://github.com/nvandenbossche rel=me aria-label=Github title=Github>
+<i class="fab fa-github fa-2x" aria-hidden=true></i>
+</a>
+</li>
+</ul>
+</div><footer class="footer footer__sidebar">
+<ul class=footer__list>
+<li class=footer__item>
+&copy;
+2022 Nicolas Vanden Bossche
+</li>
+</ul>
+</footer>
+<script type=text/javascript src=/js/medium-zoom.min.fae9ac8895995fe91958b3954be11e96025824a04770726a3531e119ddd2d576.js integrity="sha256-+umsiJWZX+kZWLOVS+EelgJYJKBHcHJqNTHhGd3S1XY=" crossorigin=anonymous></script></div>
+</aside>
+<main class=wrapper__main>
+<header class=header><div class="animated fadeInDown">
+<a role=button class=navbar-burger data-target=navMenu aria-label=menu aria-expanded=false>
+<span aria-hidden=true class=navbar-burger__line></span>
+<span aria-hidden=true class=navbar-burger__line></span>
+<span aria-hidden=true class=navbar-burger__line></span>
+</a>
+<nav class=nav>
+<ul class=nav__list id=navMenu>
+<li class=nav__list-item>
+<a href=/ title>Home</a>
+</li>
+<li class=nav__list-item>
+<a href=/posts/ title>Posts</a>
+</li>
+<li class=nav__list-item>
+<a href=/about/ title>About</a>
+</li>
+</ul>
+<ul class="nav__list nav__list--end">
+<li class=nav__list-item>
+<div class=themeswitch>
+<a title="Switch Theme">
+<i class="fas fa-adjust fa-fw" aria-hidden=true></i>
+</a>
+</div>
+</li>
+</ul>
+</nav>
+</div>
+</header>
+<div class="post
+animated fadeInDown">
+<div class=post__content>
+<h1>Conquering Salesforce IAM - First Steps</h1>
+<p>Identity & Access Management (IAM). The three most dreaded words for any beginning Salesforce admin, developer or architect. It&rsquo;s one of the most difficult topics to grasp in the famous <a href=https://trailhead.salesforce.com/en/credentials/architectoverview/>Technical Architect pyramid</a>. At least it was for me when I started my journey to CTA in 2017. I realised I had no experience or knowledge about this topic.</p>
+<p>It&rsquo;s only 5 years ago, but things looked very different. There was no Architect Relations team creating detailed <a href=https://architect.salesforce.com/diagrams#template-gallery>data models, design templates</a>, etc&mldr; The only official resource were the Salesforce help pages. I took this as a challenge to myself, to deep-dive where needed and research when I couldn&rsquo;t find it.</p>
+<p><img src=/images/posts/2022/conquering-salesforce-iam/header.png alt="Fancy title" title="Conquering Salesforce IAM - First Steps, by Nicolas Vanden Bossche"></p>
+<h2 id=introduction>Introduction</h2>
+<p>In the end, I found a few like-minded people who were also looking for answers. The <a href=https://trailhead.salesforce.com/en/trailblazercommunity>Trailblazer Community</a> came to my rescue. After a tireless back-and-forth I finally had answers to (almost) all of my questions. Since then, the learning never stopped. Whenever I see an article, blog post or video related to IAM, I dive into it to absorb more knowledge.</p>
+<p>Absorbing knowledge is useful for 2 purposes. First to apply knowledge and second to share knowledge. Now the time has come to share my knowledge. This post is the first of a series. We&rsquo;ll take a journey together by taking small, sizeable steps into the world of Salesforce IAM.</p>
+<h2 id=why>Why</h2>
+<p>There are many amazing IAM resources out there. Some examples are the <a href=https://cloudsundial.com/salesforce-identity>CloudSundial Identity</a> site or the Apex Hours <a href="https://www.youtube.com/playlist?list=PLaGX-30v1lh3A6eNOEdF1k3JTstTwqA0q">series on IAM</a>. It&rsquo;s where I&rsquo;ve gotten my own deep technical knowledge and I still reference them frequently. So why am I creating another IAM series? Good question, I&rsquo;m glad you asked!</p>
+<ol>
+<li>
+<p>I want to make the daunting IAM topic <strong>approachable</strong> to a wider audience. The idea is that you&rsquo;ll be able to jump in with limited knowledge about the security space. No initial hurdles to jump over.</p>
+</li>
+<li>
+<p>It helped me personally to understand the <strong>attacker&rsquo;s point of view</strong>. This way I didn&rsquo;t only know which security measures I was putting in place, but also which attacks it was preventing at every step of the way. I want to bring the attacker&rsquo;s angle to this series.</p>
+</li>
+<li>
+<p>It fills a gap. A long-format, written text has a certain beauty to it. It can be easily referenced. <strong>It tells a story.</strong> There aren&rsquo;t many stories like that about this topic.</p>
+</li>
+</ol>
+<p>That&rsquo;s a lot to live up to. I&rsquo;ll do my best to make it, and I hope you&rsquo;ll be here reading along with me.</p>
+<h2 id=next-episode>Next Episode</h2>
+<p>In the next episode, we&rsquo;ll talk about the mind of the attacker. Which attacks exist in the security space, and which of those are specific to Salesforce?</p>
+<p>Don&rsquo;t want to miss it? Follow me on <a href=https://www.linkedin.com/in/nicolas-vanden-bossche/>LinkedIn</a> for my latest content.</p>
+</div>
+<div class=post__footer>
+<span><a class=tag href=/tags/salesforce/>salesforce</a><a class=tag href=/tags/iam/>iam</a><a class=tag href=/tags/identity/>identity</a></span>
+</div>
+</div>
+</main>
+</div><footer class="footer footer__base">
+<ul class=footer__list>
+<li class=footer__item>
+&copy;
+2022 Nicolas Vanden Bossche
+</li>
+</ul>
+</footer>
+<script type=text/javascript src=/js/medium-zoom.min.fae9ac8895995fe91958b3954be11e96025824a04770726a3531e119ddd2d576.js integrity="sha256-+umsiJWZX+kZWLOVS+EelgJYJKBHcHJqNTHhGd3S1XY=" crossorigin=anonymous></script></body>
+</html>
