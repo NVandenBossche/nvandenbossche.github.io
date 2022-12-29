@@ -28,7 +28,7 @@ First, I made sure that I had all of the necessary pre-requisites checked or at 
 
 Since this was just going to be a trial run, I looked for an option that wouldn't cost a lot and soon ended up navigating to [AWS](https://aws.amazon.com/ "Amazon Web Services"). Registering a domain name was straightforward using Amazon Route 53, and Jeff Bezos was more than happy to munch on my credit card details. Setting the DNS lookup was also possible on Route 53, but I kept that for when I would have a first post ready.
 
-![Screenshot of domain name setup](/images/posts/2022/hugo/domainname.png "Screenshot showing the setup of nicolasvandenbossche.com domain")
+![Screenshot showing the setup of nicolasvandenbossche.com domain](/images/posts/2022/hugo/domainname.png "Screenshot of domain name setup")
 
 Hosting my website became a piece of cake once I realised that GitHub provides you with limited free hosting space linked to your GitHub user, called [GitHub Pages](https://pages.github.com/). There's even a [step-by-step tutorial](https://gohugo.io/hosting-and-deployment/hosting-on-github/) of how to host a Hugo website on your GitHub Pages.
 
@@ -38,7 +38,7 @@ Finally, I read the main articles on the Hugo website and quickly realized I wou
 
 Following the [Quick Start](https://gohugo.io/getting-started/quick-start/) tutorial, I soon had to make a decision: which theme did I want for my initial version. It took some time to choose the right theme because layout and visuals are important, and ended up with Anatole. It has a great minimalistic home page and the wonderful dark mode feature, as you can see in an example below (or by navigating to my home page!).
 
-![Anatole-themed website](/images/posts/2022/hugo/anatole_dark.png "Screenshot of an example Anatole-themed website.")
+![Screenshot of an example Anatole-themed website.](/images/posts/2022/hugo/anatole_dark.png "Anatole-themed website")
 
 Purely leveraging the instructions on the Quick Start and the theme's readme, I was up and running in no time with the help of my good friend localhost. A key thing to note is that one of the steps of generating the static website requires you to run the `hugo` command. This will generate the HTML, CSS and JavaScript that powers the static site.
 
@@ -49,7 +49,7 @@ Changing the main profile picture, the subtext, and the social icons was straigh
 
 One aspect to working with pictures in Hugo, is that they should be stored in the _static_ folder of your repository. This is because Hugo will manage these pictures as static resources that can be referenced from within your content. Nothing too extraordinary, but it can be confusing if you're used to referencing files relative to the location of the content file.
 
-![Profile updates made to the theme](/images/posts/2022/hugo/profile.png "Screenshot of how I tweaked the Anatole theme with a personal profile picture, text and social icons, including a link to my Trailblazer.me profile.")
+![Screenshot of how I tweaked the Anatole theme with a personal profile picture, text and social icons, including a link to my Trailblazer.me profile.](/images/posts/2022/hugo/profile.png "Profile updates made to the theme")
 
 ## Publishing the Initial version
 
@@ -61,7 +61,7 @@ Luckily GitHub offers a CI/CD mechanism called GitHub Actions that allowed me to
 
 As a final step, there was still the matter of enabling the DNS lookup. This took some time to get right because I wasn't used to how Route 53 worked and neither am I a networking expert. In the end I just had to listen to Aragorn.
 
-![DNS Meme](/images/posts/2022/hugo/meme_dns.jpg "Aragorn saying: One does not simply... 'Refresh' the DNS cache.")
+![Aragorn saying: One does not simply... 'Refresh' the DNS cache.](/images/posts/2022/hugo/meme_dns.jpg)
 
 ## Summary
 

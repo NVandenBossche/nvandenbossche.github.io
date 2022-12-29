@@ -323,6 +323,10 @@
             margin: 0 auto;
             text-align: center;
 
+            figcaption {
+                font-size: 1.5rem;
+            }
+
             &.big {
                 max-width: 87.5%;
             }

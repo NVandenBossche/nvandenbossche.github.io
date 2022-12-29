@@ -11,7 +11,7 @@ Identity & Access Management (IAM). The three most dreaded words for any beginni
 
 It's only 5 years ago, but things looked very different. There was no Architect Relations team creating detailed [data models, design templates](https://architect.salesforce.com/diagrams#template-gallery), etc... The only official resource were the Salesforce help pages. I took this as a challenge to myself, to deep-dive where needed and research when I couldn't find it.
 
-![Fancy title](/images/posts/2022/conquering-salesforce-iam/header.png "Conquering Salesforce IAM - First Steps, by Nicolas Vanden Bossche")
+![Conquering Salesforce IAM - First Steps, by Nicolas Vanden Bossche](/images/posts/2022/conquering-salesforce-iam/header.png)
 
 ## Introduction
 
