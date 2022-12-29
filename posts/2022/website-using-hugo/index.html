@@ -12,7 +12,7 @@ Nicolas Vanden Bossche
 
 
     ">
-<link rel=stylesheet href=/scss/main.min.81e79ce9d0aae08798fcc2d6d3b2fe944df51cfbde32e5072de8364c3cac2de1.css integrity="sha256-geec6dCq4IeY/MLW07L+lE31HPveMuUHLeg2TDysLeE=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=/scss/main.min.53d9ebb90bfc7fbc37b35b3b03ec66ddc79d510766d9f68010437907ffdf9761.css integrity="sha256-U9nruQv8f7w3s1s7A+xm3cedUQdm2faAEEN5B//fl2E=" crossorigin=anonymous type=text/css>
 <link rel=stylesheet href=/css/markupHighlight.min.31b0a1f317f55c529a460897848c97436bb138b19c399b37de70d463a8bf6ed5.css integrity="sha256-MbCh8xf1XFKaRgiXhIyXQ2uxOLGcOZs33nDUY6i/btU=" crossorigin=anonymous type=text/css>
 <link rel=stylesheet href=/fontawesome/css/fontawesome.min.69685904d5c2a0c6258d03c207b778c10466edf6cea928cc0164c376b0ad0930.css integrity="sha256-aWhZBNXCoMYljQPCB7d4wQRm7fbOqSjMAWTDdrCtCTA=" crossorigin=anonymous type=text/css>
 <link rel=stylesheet href=/fontawesome/css/solid.min.6d585e78d28cce1200d39fb133c92ed83df01738da721d0f48fb6eac62d24e04.css integrity="sha256-bVheeNKMzhIA05+xM8ku2D3wFzjach0PSPturGLSTgQ=" crossorigin=anonymous type=text/css>
@@ -41,7 +41,7 @@ Nicolas Vanden Bossche
       
 
 
-    ","inLanguage":"en-us","isFamilyFriendly":"true","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/nicolasvandenbossche.com\/posts\/2022\/website-using-hugo\/"},"author":{"@type":"Person","name":"Nicolas Vanden Bossche"},"creator":{"@type":"Person","name":"Nicolas Vanden Bossche"},"accountablePerson":{"@type":"Person","name":"Nicolas Vanden Bossche"},"copyrightHolder":{"@type":"Person","name":"Nicolas Vanden Bossche"},"copyrightYear":"2022","dateCreated":"2022-05-11T12:28:47.00Z","datePublished":"2022-05-11T12:28:47.00Z","dateModified":"2022-05-11T12:28:47.00Z","publisher":{"@type":"Organization","name":"Nicolas Vanden Bossche","url":"https://nicolasvandenbossche.com/","logo":{"@type":"ImageObject","url":"https:\/\/nicolasvandenbossche.com\/favicons\/favicon-32x32.png","width":"32","height":"32"}},"image":[],"url":"https:\/\/nicolasvandenbossche.com\/posts\/2022\/website-using-hugo\/","wordCount":"857","genre":[],"keywords":["hugo","website"]}</script>
+    ","inLanguage":"en-us","isFamilyFriendly":"true","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/nicolasvandenbossche.com\/posts\/2022\/website-using-hugo\/"},"author":{"@type":"Person","name":"Nicolas Vanden Bossche"},"creator":{"@type":"Person","name":"Nicolas Vanden Bossche"},"accountablePerson":{"@type":"Person","name":"Nicolas Vanden Bossche"},"copyrightHolder":{"@type":"Person","name":"Nicolas Vanden Bossche"},"copyrightYear":"2022","dateCreated":"2022-05-11T12:28:47.00Z","datePublished":"2022-05-11T12:28:47.00Z","dateModified":"2022-05-11T12:28:47.00Z","publisher":{"@type":"Organization","name":"Nicolas Vanden Bossche","url":"https://nicolasvandenbossche.com/","logo":{"@type":"ImageObject","url":"https:\/\/nicolasvandenbossche.com\/favicons\/favicon-32x32.png","width":"32","height":"32"}},"image":[],"url":"https:\/\/nicolasvandenbossche.com\/posts\/2022\/website-using-hugo\/","wordCount":"870","genre":[],"keywords":["hugo","website"]}</script>
 </head>
 <body class="body theme--dark">
 <div class=wrapper>
@@ -86,8 +86,7 @@ animated fadeInDown">
 2022 Nicolas Vanden Bossche
 </li>
 </ul>
-</footer>
-<script type=text/javascript src=/js/medium-zoom.min.fae9ac8895995fe91958b3954be11e96025824a04770726a3531e119ddd2d576.js integrity="sha256-+umsiJWZX+kZWLOVS+EelgJYJKBHcHJqNTHhGd3S1XY=" crossorigin=anonymous></script></div>
+</footer></div>
 </aside>
 <main class=wrapper__main>
 <header class=header><div class="animated fadeInDown">
@@ -139,24 +138,41 @@ animated fadeInDown">
 <li><input disabled type=checkbox> Learn more about the Hugo framework.</li>
 </ul>
 <p>Since this was just going to be a trial run, I looked for an option that wouldn&rsquo;t cost a lot and soon ended up navigating to <a href=https://aws.amazon.com/ title="Amazon Web Services">AWS</a>. Registering a domain name was straightforward using Amazon Route 53, and Jeff Bezos was more than happy to munch on my credit card details. Setting the DNS lookup was also possible on Route 53, but I kept that for when I would have a first post ready.</p>
-<p><img src=/images/posts/2022/hugo/domainname.png alt="Screenshot of domain name setup" title="Screenshot showing the setup of nicolasvandenbossche.com domain"></p>
+<p>
+<figure>
+<img src=/images/posts/2022/hugo/domainname.png alt="Screenshot showing the setup of nicolasvandenbossche.com domain">
+<figcaption>Screenshot of domain name setup</figcaption>
+</figure>
+</p>
 <p>Hosting my website became a piece of cake once I realised that GitHub provides you with limited free hosting space linked to your GitHub user, called <a href=https://pages.github.com/>GitHub Pages</a>. There&rsquo;s even a <a href=https://gohugo.io/hosting-and-deployment/hosting-on-github/>step-by-step tutorial</a> of how to host a Hugo website on your GitHub Pages.</p>
 <p>Finally, I read the main articles on the Hugo website and quickly realized I would learn faster while doing. So I created my GitHub repo, cloned it, and got VS Code up and running. My checklist was complete and I was ready to rumble!</p>
 <h2 id=local-development>Local Development</h2>
 <p>Following the <a href=https://gohugo.io/getting-started/quick-start/>Quick Start</a> tutorial, I soon had to make a decision: which theme did I want for my initial version. It took some time to choose the right theme because layout and visuals are important, and ended up with Anatole. It has a great minimalistic home page and the wonderful dark mode feature, as you can see in an example below (or by navigating to my home page!).</p>
-<p><img src=/images/posts/2022/hugo/anatole_dark.png alt="Anatole-themed website" title="Screenshot of an example Anatole-themed website."></p>
+<p>
+<figure>
+<img src=/images/posts/2022/hugo/anatole_dark.png alt="Screenshot of an example Anatole-themed website.">
+<figcaption>Anatole-themed website</figcaption>
+</figure>
+</p>
 <p>Purely leveraging the instructions on the Quick Start and the theme&rsquo;s readme, I was up and running in no time with the help of my good friend localhost. A key thing to note is that one of the steps of generating the static website requires you to run the <code>hugo</code> command. This will generate the HTML, CSS and JavaScript that powers the static site.</p>
 <h2 id=making-it-my-own>Making it my Own</h2>
 <p>Following a tutorial and running things locally is usually the easy part. Now I needed to customise the site so that it reflects who I am.
 Changing the main profile picture, the subtext, and the social icons was straightforward as explained in the Anatole documentation. Even the Salesforce &ldquo;social&rdquo; icon is supported! After a lot of thought, I decided to leave out Myspace.</p>
 <p>One aspect to working with pictures in Hugo, is that they should be stored in the <em>static</em> folder of your repository. This is because Hugo will manage these pictures as static resources that can be referenced from within your content. Nothing too extraordinary, but it can be confusing if you&rsquo;re used to referencing files relative to the location of the content file.</p>
-<p><img src=/images/posts/2022/hugo/profile.png alt="Profile updates made to the theme" title="Screenshot of how I tweaked the Anatole theme with a personal profile picture, text and social icons, including a link to my Trailblazer.me profile."></p>
+<p>
+<figure>
+<img src=/images/posts/2022/hugo/profile.png alt="Screenshot of how I tweaked the Anatole theme with a personal profile picture, text and social icons, including a link to my Trailblazer.me profile.">
+<figcaption>Profile updates made to the theme</figcaption>
+</figure>
+</p>
 <h2 id=publishing-the-initial-version>Publishing the Initial version</h2>
 <p>Having run this thing locally, I naively thought my website would work by pushing things into my GitHub Pages repo. Remember when I told you about the key understanding of how the static site is generated - yes we still need to run <code>hugo</code>!</p>
 <p>Luckily GitHub offers a CI/CD mechanism called GitHub Actions that allowed me to do exactly that with every commit to the main branch of my repo. By copying and slightly tweaking an official <a href=https://gohugo.io/hosting-and-deployment/hosting-on-github/#build-hugo-with-github-action>example</a>, I was finally able to see the first version shine out on the public internet!</p>
 <h2 id=finishing-touches>Finishing Touches</h2>
 <p>As a final step, there was still the matter of enabling the DNS lookup. This took some time to get right because I wasn&rsquo;t used to how Route 53 worked and neither am I a networking expert. In the end I just had to listen to Aragorn.</p>
-<p><img src=/images/posts/2022/hugo/meme_dns.jpg alt="DNS Meme" title="Aragorn saying: One does not simply... 'Refresh' the DNS cache."></p>
+<p>
+<img src=/images/posts/2022/hugo/meme_dns.jpg alt="Aragorn saying: One does not simply&amp;hellip; &amp;lsquo;Refresh&amp;rsquo; the DNS cache.">
+</p>
 <h2 id=summary>Summary</h2>
 <p>It all started out with trying to set up a very simple website. I dove into the Hugo rabbit hole and ended up with a beautiful combination of technologies: a website hosted on GitHub containing a minimalistic, good-lookcing, static website generated by Hugo through GitHub Actions, accessible via nicolasvandenbossche.com via AWS Route 53. A great learning experience and a cool result!</p>
 </div>
@@ -172,6 +188,5 @@ Changing the main profile picture, the subtext, and the social icons was straigh
 2022 Nicolas Vanden Bossche
 </li>
 </ul>
-</footer>
-<script type=text/javascript src=/js/medium-zoom.min.fae9ac8895995fe91958b3954be11e96025824a04770726a3531e119ddd2d576.js integrity="sha256-+umsiJWZX+kZWLOVS+EelgJYJKBHcHJqNTHhGd3S1XY=" crossorigin=anonymous></script></body>
+</footer></body>
 </html>

@@ -1,0 +1,180 @@
+<!doctype html><html dir=ltr lang=en data-theme=dark class=html><head>
+<title>
+The Attacker's Mindset |
+Nicolas Vanden Bossche
+</title>
+<meta charset=utf-8><meta name=generator content="Hugo 0.91.2"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name=author content="Nicolas Vanden Bossche">
+<meta name=description content="
+          /nikɔla/
+    Technophile, dad, Salesforce architect, CTA.
+    
+
+
+    ">
+<link rel=stylesheet href=/scss/main.min.53d9ebb90bfc7fbc37b35b3b03ec66ddc79d510766d9f68010437907ffdf9761.css integrity="sha256-U9nruQv8f7w3s1s7A+xm3cedUQdm2faAEEN5B//fl2E=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=/css/markupHighlight.min.31b0a1f317f55c529a460897848c97436bb138b19c399b37de70d463a8bf6ed5.css integrity="sha256-MbCh8xf1XFKaRgiXhIyXQ2uxOLGcOZs33nDUY6i/btU=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=/fontawesome/css/fontawesome.min.69685904d5c2a0c6258d03c207b778c10466edf6cea928cc0164c376b0ad0930.css integrity="sha256-aWhZBNXCoMYljQPCB7d4wQRm7fbOqSjMAWTDdrCtCTA=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=/fontawesome/css/solid.min.6d585e78d28cce1200d39fb133c92ed83df01738da721d0f48fb6eac62d24e04.css integrity="sha256-bVheeNKMzhIA05+xM8ku2D3wFzjach0PSPturGLSTgQ=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=/fontawesome/css/brands.min.6b00d96498d59caa0dbcf9b49d30d821915291f2ceb0e19248523c8607ff43fa.css integrity="sha256-awDZZJjVnKoNvPm0nTDYIZFSkfLOsOGSSFI8hgf/Q/o=" crossorigin=anonymous type=text/css>
+<link rel="shortcut icon" href=/favicons/favicon.ico type=image/x-icon>
+<link rel=apple-touch-icon sizes=180x180 href=/favicons/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicons/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicons/favicon-16x16.png>
+<link rel=canonical href=https://nicolasvandenbossche.com/posts/2022/conquering-salesforce-iam-the-attackers-mindset/>
+<script type=text/javascript src=/js/anatole-header.min.46e6a54097480084f8f52c20ca1aa7425b4fad17029a887fd4017b12e311a72d.js integrity="sha256-RualQJdIAIT49SwgyhqnQltPrRcCmoh/1AF7EuMRpy0=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/anatole-theme-switcher.min.5557c8ff5617a01067ac258fd70b9b992506e379317b0da51e5e0f6e018b408a.js integrity="sha256-VVfI/1YXoBBnrCWP1wubmSUG43kxew2lHl4PbgGLQIo=" crossorigin=anonymous></script>
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="The Attacker's Mindset">
+<meta name=twitter:description content="Whenever I was studying topics related to Identity & Access Management (IAM), every resource I found was always very theoretical.">
+<meta property="og:title" content="The Attacker's Mindset">
+<meta property="og:description" content="Whenever I was studying topics related to Identity & Access Management (IAM), every resource I found was always very theoretical.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nicolasvandenbossche.com/posts/2022/conquering-salesforce-iam-the-attackers-mindset/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2022-12-29T19:23:26+01:00">
+<meta property="article:modified_time" content="2022-12-29T19:23:26+01:00"><meta property="og:site_name" content="NICOLAS VANDEN BOSSCHE">
+<meta property="og:see_also" content="https://nicolasvandenbossche.com/posts/2022/conquering-salesforce-iam-first-steps/">
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","articleSection":"posts","name":"The Attacker\u0027s Mindset","headline":"The Attacker\u0027s Mindset","alternativeHeadline":"","description":"
+      
+        Whenever I was studying topics related to Identity \u0026amp; Access Management (IAM), every resource I found was always very theoretical.
+
+
+      
+
+
+    ","inLanguage":"en-us","isFamilyFriendly":"true","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/nicolasvandenbossche.com\/posts\/2022\/conquering-salesforce-iam-the-attackers-mindset\/"},"author":{"@type":"Person","name":"Nicolas Vanden Bossche"},"creator":{"@type":"Person","name":"Nicolas Vanden Bossche"},"accountablePerson":{"@type":"Person","name":"Nicolas Vanden Bossche"},"copyrightHolder":{"@type":"Person","name":"Nicolas Vanden Bossche"},"copyrightYear":"2022","dateCreated":"2022-12-29T19:23:26.00Z","datePublished":"2022-12-29T19:23:26.00Z","dateModified":"2022-12-29T19:23:26.00Z","publisher":{"@type":"Organization","name":"Nicolas Vanden Bossche","url":"https://nicolasvandenbossche.com/","logo":{"@type":"ImageObject","url":"https:\/\/nicolasvandenbossche.com\/favicons\/favicon-32x32.png","width":"32","height":"32"}},"image":[],"url":"https:\/\/nicolasvandenbossche.com\/posts\/2022\/conquering-salesforce-iam-the-attackers-mindset\/","wordCount":"916","genre":[],"keywords":[]}</script>
+</head>
+<body class="body theme--dark">
+<div class=wrapper>
+<aside class=wrapper__sidebar><div class="sidebar
+animated fadeInDown">
+<div class=sidebar__content>
+<div class=sidebar__introduction>
+<img class=sidebar__introduction-profileimage src=/images/profile.jpg alt="profile picture">
+<h1 class=sidebar__introduction-title>
+<a href=/>NICOLAS VANDEN BOSSCHE</a>
+</h1>
+<div class=sidebar__introduction-description>
+<p> /nikɔla/<br> Technophile, dad, Salesforce architect, CTA.<br> </p>
+</div>
+</div>
+<ul class=sidebar__list>
+<li class=sidebar__list-item>
+<a href=https://www.linkedin.com/in/nicolas-vanden-bossche/ rel=me aria-label=Linkedin title=Linkedin>
+<i class="fab fa-linkedin fa-2x" aria-hidden=true></i>
+</a>
+</li>
+<li class=sidebar__list-item>
+<a href=https://twitter.com/nvandenbossche/ rel=me aria-label=Twitter title=Twitter>
+<i class="fab fa-twitter fa-2x" aria-hidden=true></i>
+</a>
+</li>
+<li class=sidebar__list-item>
+<a href=https://trailblazer.me/id/nvandenbossche rel=me aria-label=Trailblazer.me title=Trailblazer.me>
+<i class="fab fa-salesforce fa-2x" aria-hidden=true></i>
+</a>
+</li>
+<li class=sidebar__list-item>
+<a href=https://github.com/nvandenbossche rel=me aria-label=Github title=Github>
+<i class="fab fa-github fa-2x" aria-hidden=true></i>
+</a>
+</li>
+</ul>
+</div><footer class="footer footer__sidebar">
+<ul class=footer__list>
+<li class=footer__item>
+&copy;
+2022 Nicolas Vanden Bossche
+</li>
+</ul>
+</footer></div>
+</aside>
+<main class=wrapper__main>
+<header class=header><div class="animated fadeInDown">
+<a role=button class=navbar-burger data-target=navMenu aria-label=menu aria-expanded=false>
+<span aria-hidden=true class=navbar-burger__line></span>
+<span aria-hidden=true class=navbar-burger__line></span>
+<span aria-hidden=true class=navbar-burger__line></span>
+</a>
+<nav class=nav>
+<ul class=nav__list id=navMenu>
+<li class=nav__list-item>
+<a href=/ title>Home</a>
+</li>
+<li class=nav__list-item>
+<a href=/posts/ title>Posts</a>
+</li>
+<li class=nav__list-item>
+<a href=/about/ title>About</a>
+</li>
+</ul>
+<ul class="nav__list nav__list--end">
+<li class=nav__list-item>
+<div class=themeswitch>
+<a title="Switch Theme">
+<i class="fas fa-adjust fa-fw" aria-hidden=true></i>
+</a>
+</div>
+</li>
+</ul>
+</nav>
+</div>
+</header>
+<div class="post
+animated fadeInDown">
+<div class=post__content>
+<h1>The Attacker's Mindset</h1>
+<p>Whenever I was studying topics related to Identity & Access Management (IAM), every resource I found was always very theoretical. It was difficult to try and imagine how to put the theory into practice.</p>
+<p>After reading many theories, something strange started to happen in my brain. It was like I&rsquo;d been digging a hole and suddenly I found a long-forgotten memory. This memory took me back to my days in university where our professor kept going on and on about <a href=https://en.wikipedia.org/wiki/Alice_and_Bob>Alice and Bob</a>. You guessed it, it was a course about network security.</p>
+<p>The interesting part was that this professor had always been talking about the attacker before diving into the details of network security protocols. So I decided to revisit that approach and apply it to everything I could find related to Salesforce IAM. Theories began to make sense, and I could always relate it to a practical situation in which I could apply that theory.</p>
+<p>
+<img src=/images/posts/2022/csi-attacker-mindset/header.png alt="Conquering Salesforce IAM - The Attacker&amp;rsquo;s Mindset, by Nicolas Vanden Bossche">
+</p>
+<p>Of course this approach is not new, but it is kind of new to the Salesforce ecosystem. Salesforce admins, developers and architects are usually not trained in web or network security. We work together with security teams, and usually it&rsquo;s only because otherwise we won&rsquo;t go live with our Salesforce app. That&rsquo;s not a healthy situation.</p>
+<p>Let&rsquo;s take a deeper dive into the attacker&rsquo;s mindset to understand the security responsibilities of Salesforce professionals.</p>
+<h2 id=the-attackers-motivation>The Attacker&rsquo;s Motivation</h2>
+<p>Salesforce is a system that contains some of our most treasured data. As the platform evolves, we will have more data that will become more important to the business (Genie Lakehouse anyone?). You don&rsquo;t want malicious actors to get access to that data.</p>
+<p>Attackers might have different motivations to get access to your systems and data. They can bring client lists to your competition. They can change data in subtle ways to sabotage your business. They can leak data and deal damage to your business' reputation or even open you up to lawsuits. They can shut down your e-commerce site during peak moments.</p>
+<p>Lucky for us, a lot of the security aspects on Infrastructure, Platform and Software layers are already taken care of by the Salesforce Platform. These prevent many of these attacks, but there are some that we need to guard ourselves against as Salesforce practitioners and customers.</p>
+<p>Looking at Identity & Access Management, what are the attacks that can occur and how can we secure against them?</p>
+<h2 id=attacker-model>Attacker Model</h2>
+<p>When we are thinking about the types of attacks that can occur in a security context, we&rsquo;re building an &ldquo;attacker model&rdquo;. Pick your most obscure hoodie, nerdiest glasses, and start reenacting your favourite hacker scene.</p>
+<div style=position:relative;padding-bottom:56.25%;height:0;overflow:hidden>
+<iframe src=https://www.youtube.com/embed/0PxTAn4g20U style=position:absolute;top:0;left:0;width:100%;height:100%;border:0 allowfullscreen title="YouTube Video"></iframe>
+</div>
+<p>Identity Management is all about making sure an actor (person or system) is who they say they are. A bad actor will try to make your Salesforce org believe that they are someone else. In doing so, they&rsquo;ll be authenticated as the impersonated user and get access to their resources. Some attackers will instead try preventing well-intentioned users from authenticating by overloading the Salesforce authentication server (denial-of-service).</p>
+<p>Access Management on the other hand is making sure an authenticated user only has access to the resources they should have access to. Attackers want to get their hands on Connect App&rsquo;s access tokens or hijack user&rsquo;s sessions. This would lead them to have access to resources they don&rsquo;t own.</p>
+<p>Finally, remember that bad actors could already have access to your Salesforce org! They could seek out weaknesses in your configuration such as violations against <a href=https://en.wikipedia.org/wiki/Principle_of_least_privilege>Principle of Least Privilege</a>. Even without bad actors, users with elevated privileges could always make mistakes.</p>
+<h2 id=attacks-explained>Attacks Explained</h2>
+<p>We&rsquo;ve stayed quite abstract up until now. I promised in my <a href=https://nicolasvandenbossche.com/posts/2022/conquering-salesforce-iam-first-steps/>first post</a> that we&rsquo;d make things approachable, so let&rsquo;s deliver on that promise! We&rsquo;ll dive into a couple of examples of what such attack patterns could look like.</p>
+<p>One type of attacks are pure technology-based attacks that exploit weaknesses in code, infrastructure, network, or configuration. Not sufficiently securing your communications can lead to attackers sniffing your network with tools like <a href=https://www.wireshark.org/>Wireshark</a>. In such a scenario, requests and replies to and from Salesforce can be read, intercepted or even changed in transit.</p>
+<p>
+<figure>
+<img src=/images/posts/2022/csi-attacker-mindset/wireshark.jpg alt="A screenshot of a Wireshark session monitoring network traffic">
+<figcaption>Wireshark screenshot - Source: https://www.infosecmatter.com/wp-content/uploads/2020/02/wireshark-80-http4.jpg</figcaption>
+</figure>
+</p>
+<p>Another type of attacks will combine the technology with social engineering. Attackers could be researching individuals who have access to your Salesforce orgs, carefully crafting scams or phishing attacks that are specific to the individual to get access to their credentials. Multi-factor authentication will help here, but things like MFA fatigue attacks are popping up to break those protections.</p>
+<p>Finally there are attacks that will combine social engineering attacks to get access to trusted endpoints, and then leverage elaborate technology schemes using those compromised endpoints to get access to the real target. One example would be to get access to one Authorisation Server to mislead another one in an OAuth flow.</p>
+<h2 id=conclusion>Conclusion</h2>
+<p>We&rsquo;ve taken a deeper look into the attacker&rsquo;s mind. They can be bad actors from inside or outside of your organisation. By reviewing their attacker model, we&rsquo;ve seen that a wide variety of attacks can be launched and some examples of these attacks. This means that protecting our Salesforce org is not something trivial, even if the Salesforce platform already comes with many built-in protections.</p>
+<p>Let me know on <a href=https://www.linkedin.com/in/nicolas-vanden-bossche/>LinkedIn</a> or via <a href=https://twitter.com/nvandenbossche/>Twitter</a> what you thought about this post. It can be about the content, style, approach, or anything else you&rsquo;d like to share. In the next posts, we&rsquo;ll dive into specific attacks and how to prevent them.</p>
+<h3>Posts in this Series</h3>
+<ul>
+<li><a href=/posts/2022/conquering-salesforce-iam-the-attackers-mindset/>The Attacker's Mindset</a></li>
+<li><a href=/posts/2022/conquering-salesforce-iam-first-steps/>Conquering Salesforce IAM - First Steps</a></li>
+</ul>
+</div>
+<div class=post__footer>
+</div>
+</div>
+</main>
+</div><footer class="footer footer__base">
+<ul class=footer__list>
+<li class=footer__item>
+&copy;
+2022 Nicolas Vanden Bossche
+</li>
+</ul>
+</footer></body>
+</html>
