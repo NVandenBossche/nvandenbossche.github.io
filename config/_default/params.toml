@@ -2,10 +2,12 @@ profilePicture = "/images/profile.jpg"
 reversepagetitle = true
 title = "NICOLAS VANDEN BOSSCHE"
 author = "Nicolas Vanden Bossche"
+contentratio = 0.7
 description = """
     /nikɔla/
     Technophile, dad, Salesforce architect, CTA.
     """
+enableMediumZoom = false
 favicon = "/favicons/"
 displayMode = "dark"
 indexDateFormat = "January 2, 2006"
