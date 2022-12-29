@@ -1,6 +1,9 @@
 ---
 title: "The Attacker's Mindset"
 date: 2022-12-29T19:23:26+01:00
+tags: [salesforce, iam, identity]
+thumbnail: "/images/posts/2022/conquering-salesforce-iam/IAM-Architect.png"
+summary: "Get a better understanding of an attacker's mind in the Salesforce space, a crucial part of understanding Identity & Access Management."
 series:
     - salesforce-iam
 draft: false
