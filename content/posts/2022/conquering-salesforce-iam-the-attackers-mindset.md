@@ -9,6 +9,8 @@ series:
 draft: false
 ---
 
+> This blog post is the second post in a series. To start at the beginning, navigate [here](/posts/2022/conquering-salesforce-iam-first-steps/). You can find a full overview of all blog posts in this series here.
+
 Whenever I was studying topics related to Identity & Access Management (IAM), every resource I found was always very theoretical. It was difficult to try and imagine how to put the theory into practice.
 
 After reading many theories, something strange started to happen in my brain. It was like I'd been digging a hole and suddenly I found a long-forgotten memory. This memory took me back to my days in university where our professor kept going on and on about [Alice and Bob](https://en.wikipedia.org/wiki/Alice_and_Bob). You guessed it, it was a course about network security.
