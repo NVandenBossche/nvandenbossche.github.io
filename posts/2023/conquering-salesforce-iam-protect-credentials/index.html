@@ -1,0 +1,190 @@
+<!doctype html><html dir=ltr lang=en data-theme=dark class=html><head>
+<title>
+Protecting your Credentials |
+Nicolas Vanden Bossche
+</title>
+<meta charset=utf-8><meta name=generator content="Hugo 0.91.2"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name=author content="Nicolas Vanden Bossche">
+<meta name=description content="
+          /nikɔla/
+    Technophile, dad, Salesforce architect, CTA.
+    
+
+
+    ">
+<link rel=stylesheet href=/scss/main.min.53d9ebb90bfc7fbc37b35b3b03ec66ddc79d510766d9f68010437907ffdf9761.css integrity="sha256-U9nruQv8f7w3s1s7A+xm3cedUQdm2faAEEN5B//fl2E=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=/css/markupHighlight.min.31b0a1f317f55c529a460897848c97436bb138b19c399b37de70d463a8bf6ed5.css integrity="sha256-MbCh8xf1XFKaRgiXhIyXQ2uxOLGcOZs33nDUY6i/btU=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=/fontawesome/css/fontawesome.min.69685904d5c2a0c6258d03c207b778c10466edf6cea928cc0164c376b0ad0930.css integrity="sha256-aWhZBNXCoMYljQPCB7d4wQRm7fbOqSjMAWTDdrCtCTA=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=/fontawesome/css/solid.min.6d585e78d28cce1200d39fb133c92ed83df01738da721d0f48fb6eac62d24e04.css integrity="sha256-bVheeNKMzhIA05+xM8ku2D3wFzjach0PSPturGLSTgQ=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=/fontawesome/css/brands.min.6b00d96498d59caa0dbcf9b49d30d821915291f2ceb0e19248523c8607ff43fa.css integrity="sha256-awDZZJjVnKoNvPm0nTDYIZFSkfLOsOGSSFI8hgf/Q/o=" crossorigin=anonymous type=text/css>
+<link rel="shortcut icon" href=/favicons/favicon.ico type=image/x-icon>
+<link rel=apple-touch-icon sizes=180x180 href=/favicons/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicons/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicons/favicon-16x16.png>
+<link rel=canonical href=https://nicolasvandenbossche.com/posts/2023/conquering-salesforce-iam-protect-credentials/>
+<script type=text/javascript src=/js/anatole-header.min.46e6a54097480084f8f52c20ca1aa7425b4fad17029a887fd4017b12e311a72d.js integrity="sha256-RualQJdIAIT49SwgyhqnQltPrRcCmoh/1AF7EuMRpy0=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/anatole-theme-switcher.min.5557c8ff5617a01067ac258fd70b9b992506e379317b0da51e5e0f6e018b408a.js integrity="sha256-VVfI/1YXoBBnrCWP1wubmSUG43kxew2lHl4PbgGLQIo=" crossorigin=anonymous></script>
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Protecting your Credentials">
+<meta name=twitter:description content="Understand how you can protect Salesforce and external credentials in your org.">
+<meta property="og:title" content="Protecting your Credentials">
+<meta property="og:description" content="Understand how you can protect Salesforce and external credentials in your org.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nicolasvandenbossche.com/posts/2023/conquering-salesforce-iam-protect-credentials/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2023-01-31T20:06:47+01:00">
+<meta property="article:modified_time" content="2023-01-31T20:06:47+01:00"><meta property="og:site_name" content="NICOLAS VANDEN BOSSCHE">
+<meta property="og:see_also" content="https://nicolasvandenbossche.com/posts/2022/conquering-salesforce-iam-the-attackers-mindset/"><meta property="og:see_also" content="https://nicolasvandenbossche.com/posts/2022/conquering-salesforce-iam-first-steps/">
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","articleSection":"posts","name":"Protecting your Credentials","headline":"Protecting your Credentials","alternativeHeadline":"","description":"
+      
+        Understand how you can protect Salesforce and external credentials in your org.
+
+
+      
+
+
+    ","inLanguage":"en-us","isFamilyFriendly":"true","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/nicolasvandenbossche.com\/posts\/2023\/conquering-salesforce-iam-protect-credentials\/"},"author":{"@type":"Person","name":"Nicolas Vanden Bossche"},"creator":{"@type":"Person","name":"Nicolas Vanden Bossche"},"accountablePerson":{"@type":"Person","name":"Nicolas Vanden Bossche"},"copyrightHolder":{"@type":"Person","name":"Nicolas Vanden Bossche"},"copyrightYear":"2023","dateCreated":"2023-01-31T20:06:47.00Z","datePublished":"2023-01-31T20:06:47.00Z","dateModified":"2023-01-31T20:06:47.00Z","publisher":{"@type":"Organization","name":"Nicolas Vanden Bossche","url":"https://nicolasvandenbossche.com/","logo":{"@type":"ImageObject","url":"https:\/\/nicolasvandenbossche.com\/favicons\/favicon-32x32.png","width":"32","height":"32"}},"image":[],"url":"https:\/\/nicolasvandenbossche.com\/posts\/2023\/conquering-salesforce-iam-protect-credentials\/","wordCount":"774","genre":[],"keywords":["salesforce","iam","identity","credentials"]}</script>
+</head>
+<body class="body theme--dark">
+<div class=wrapper>
+<aside class=wrapper__sidebar><div class="sidebar
+animated fadeInDown">
+<div class=sidebar__content>
+<div class=sidebar__introduction>
+<img class=sidebar__introduction-profileimage src=/images/profile.jpg alt="profile picture">
+<h1 class=sidebar__introduction-title>
+<a href=/>NICOLAS VANDEN BOSSCHE</a>
+</h1>
+<div class=sidebar__introduction-description>
+<p> /nikɔla/<br> Technophile, dad, Salesforce architect, CTA.<br> </p>
+</div>
+</div>
+<ul class=sidebar__list>
+<li class=sidebar__list-item>
+<a href=https://www.linkedin.com/in/nicolas-vanden-bossche/ rel=me aria-label=Linkedin title=Linkedin>
+<i class="fab fa-linkedin fa-2x" aria-hidden=true></i>
+</a>
+</li>
+<li class=sidebar__list-item>
+<a href=https://twitter.com/nvandenbossche/ rel=me aria-label=Twitter title=Twitter>
+<i class="fab fa-twitter fa-2x" aria-hidden=true></i>
+</a>
+</li>
+<li class=sidebar__list-item>
+<a href=https://trailblazer.me/id/nvandenbossche rel=me aria-label=Trailblazer.me title=Trailblazer.me>
+<i class="fab fa-salesforce fa-2x" aria-hidden=true></i>
+</a>
+</li>
+<li class=sidebar__list-item>
+<a href=https://github.com/nvandenbossche rel=me aria-label=Github title=Github>
+<i class="fab fa-github fa-2x" aria-hidden=true></i>
+</a>
+</li>
+</ul>
+</div><footer class="footer footer__sidebar">
+<ul class=footer__list>
+<li class=footer__item>
+&copy;
+2023 Nicolas Vanden Bossche
+</li>
+</ul>
+</footer></div>
+</aside>
+<main class=wrapper__main>
+<header class=header><div class="animated fadeInDown">
+<a role=button class=navbar-burger data-target=navMenu aria-label=menu aria-expanded=false>
+<span aria-hidden=true class=navbar-burger__line></span>
+<span aria-hidden=true class=navbar-burger__line></span>
+<span aria-hidden=true class=navbar-burger__line></span>
+</a>
+<nav class=nav>
+<ul class=nav__list id=navMenu>
+<li class=nav__list-item>
+<a href=/ title>Home</a>
+</li>
+<li class=nav__list-item>
+<a href=/posts/ title>Posts</a>
+</li>
+<li class=nav__list-item>
+<a href=/about/ title>About</a>
+</li>
+</ul>
+<ul class="nav__list nav__list--end">
+<li class=nav__list-item>
+<div class=themeswitch>
+<a title="Switch Theme">
+<i class="fas fa-adjust fa-fw" aria-hidden=true></i>
+</a>
+</div>
+</li>
+</ul>
+</nav>
+</div>
+</header>
+<div class="post
+animated fadeInDown">
+<div class=post__content>
+<h1>Protecting Your Credentials</h1>
+<blockquote>
+<p>This blog post is the third post in a series. To start at the beginning, navigate <a href=/posts/2022/conquering-salesforce-iam-first-steps/>here</a>. You can find a full overview of all blog posts in this series here.</p>
+</blockquote>
+<p>Quite often we hear news stories about hacks involving credentials such as username and password that are leaked. Those credentials give access to key systems of the targeted organisation. The damage is often enormous, from impacting revenue streams to customer data leaks. It&rsquo;s no surprise that these types of vulnerabilities are in the <a href=https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/>OWASP top 10</a>.</p>
+<p>
+<img src=/images/posts/2023/csi-protect-credentials/header.png alt="Conquering Salesforce IAM - Protecting your Credentials, by Nicolas Vanden Bossche">
+</p>
+<p>Leaked credentials can also be a problem in a Salesforce implementation. Lucky for us, Salesforce provides ways to protect credentials and cryptographic keys. We&rsquo;ll look at an example where credentials are stored in the metadata. And how easy it is for attackers to obtain them. Afterwards, we&rsquo;ll run through the actions you can take to protect your org.</p>
+<h2 id=hypothetical-scenario>Hypothetical Scenario</h2>
+<p>Let&rsquo;s imagine a scenario where we have a developer named Alice. She is working on an integration between Salesforce and an external webservice. She needs to authenticate by creating a HTTP request with an authentication header. This header requires her to specify the username and password of a technical user.</p>
+<p>She&rsquo;s had some experience with Apex development. Every good developer knows that hardcoding values is never recommended. So instead she copies the username and password over in a Custom Metadata Type (CMT). She then references this CMT in her Apex code and is able to connect to her webservice. A job well done!?</p>
+<p>
+<img src=/images/posts/2023/csi-protect-credentials/custom-metadata.jpg alt="A screenshot of a custom metadata type where a username and password are stored.">
+</p>
+<p>A day later, another developer named Bob is pulling down all changed metadata into his local IDE. Now we can see that Bob has access to these credentials as well. What if Bob is a bad actor? He can search through his local files for sensitive information. What if the code repository gets hacked? What if Bob gets targeted through social engineering? In all these cases, the credentials would be compromised.</p>
+<p>
+<img src=/images/posts/2023/csi-protect-credentials/credentials-unsecure.jpg alt="A screenshot of exposed username and password in the org&amp;rsquo;s metadata.">
+</p>
+<h2 id=the-right-way-to-store-secrets-in-salesforce>The Right Way to Store Secrets in Salesforce</h2>
+<p>What could Alice have done to avoid these situations? No hardcoding was the right first choice, but it should go further than that. There should be no credentials saved in Salesforce.</p>
+<p>Salesforce has a secure mechanisms to store credentials. Alice takes a deeper look at Named Credentials and External Credentials. They allow her to configure the endpoint authentication without exposing credentials. Instead, she can link to the Named Credentials in Apex and External Services.</p>
+<p>
+<img src=/images/posts/2023/csi-protect-credentials/external-credentials.jpg alt="A screenshot of an external credential in a Salesforce org. You can see the OAuth 2.0 protocol being used.">
+<img src=/images/posts/2023/csi-protect-credentials/named-credentials.jpg alt="A screenshot of a named credential in a Salesforce org. You can see the link with the external credential, a specified endpoint and a client certificate.">
+</p>
+<h2 id=prepare-for-the-worst>Prepare for the Worst</h2>
+<p>We should also take a look in the other direction. Other systems also have secret management solutions such as Azure Key Vault. What if those are not used to secure Salesforce credentials? How can we prevent that an attacker can do no damage, even with leaked credentials?</p>
+<p>An obvious action is to enable Multi-Factor Authentication (MFA). This is actually <a href="https://help.salesforce.com/s/articleView?id=release-notes.rn_security_mfa_auto_enablement_phase2.htm&release=242&type=5">enforced</a> by Salesforce as of the Spring ’23 release, but <a href="https://help.salesforce.com/s/articleView?id=000388806&type=1">not for all users</a>. Most notably, API-only users are excluded. We can further secure API-only users by taking the following steps:</p>
+<ul>
+<li>Blocking the OAuth Username-Password flow.</li>
+<li>Blocking the OAuth User Agent (Implicit Grant) flow.</li>
+<li>High-assurance session for viewing connected app credentials (client ID and client secret).</li>
+</ul>
+<p>
+<img src=/images/posts/2023/csi-protect-credentials/oauth-settings.jpg alt="A screenshot of exposed username and password in the org&amp;rsquo;s metadata.">
+</p>
+<p>It&rsquo;s also crucial to provide security training and awareness to your users. This is sometimes seen as a nuisance, but it helps in reducing the attack surface. This can be training people on recognising phishing emails or making them aware of the dangers of social engineering.</p>
+<h2 id=create-an-action-plan>Create an Action Plan</h2>
+<p>Sometimes we cannot avoid bad actors to gain access to the system. Set up proper monitoring of your environment with Event Monitoring. This feature provides detailed logs of everything happening in your Salesforce org.</p>
+<p>It&rsquo;s crucial to have a plan and act on the generated logs. Proactively, you can then set up rules to block suspicious activity with <a href="https://help.salesforce.com/s/articleView?id=release-notes.rn_security_mfa_auto_enablement_phase2.htm&release=242&type=5">Enhanced Transaction Security</a>. Reactively, you can set up alerts in Salesforce or integrate the logs with a <a href=https://en.wikipedia.org/wiki/Security_information_and_event_management>Security Information and Event Monitoring (SIEM)</a> system to handle alerting there. Make sure to have a support organisation in place that can act on those alerts. This way you avoid that the alerts get sent to the Upside Down and are gobbled up by whatever monstrosity is hiding there.</p>
+<h2 id=conclusion>Conclusion</h2>
+<p>Saving credentials in easily accessible locations is never a good idea. This article showed you recommended alternatives. First, use security platform features to store them properly. Second, prevent unauthorised access even if bad actors can get a hold of your credentials. Finally, set up monitoring to get alerted about suspicious activity and act quickly.</p>
+<p><em>Thanks for reading! Let me know if you have any remarks, questions or suggestions. Always happy to discuss security on the Salesforce platform.</em></p>
+<h3>Posts in this Series</h3>
+<ul>
+<li><a href=/posts/2023/conquering-salesforce-iam-protect-credentials/>Protecting Your Credentials</a></li>
+<li><a href=/posts/2022/conquering-salesforce-iam-the-attackers-mindset/>The Attacker's Mindset</a></li>
+<li><a href=/posts/2022/conquering-salesforce-iam-first-steps/>Conquering Salesforce IAM - First Steps</a></li>
+</ul>
+</div>
+<div class=post__footer>
+<span><a class=tag href=/tags/salesforce/>salesforce</a><a class=tag href=/tags/iam/>iam</a><a class=tag href=/tags/identity/>identity</a><a class=tag href=/tags/credentials/>credentials</a></span>
+</div>
+</div>
+</main>
+</div><footer class="footer footer__base">
+<ul class=footer__list>
+<li class=footer__item>
+&copy;
+2023 Nicolas Vanden Bossche
+</li>
+</ul>
+</footer></body>
+</html>
