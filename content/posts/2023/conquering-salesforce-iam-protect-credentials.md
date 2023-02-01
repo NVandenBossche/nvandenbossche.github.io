@@ -9,7 +9,7 @@ series:
 draft: false
 ---
 
-> This blog post is the third post in a series. To start at the beginning, navigate [here](/posts/2022/conquering-salesforce-iam-first-steps/). You can find a full overview of all blog posts in this series here.
+> This blog post is the third post in a series. To start at the beginning, navigate [here](/posts/2022/conquering-salesforce-iam-first-steps/). You can find a full overview of all blog posts in this series at the bottom of the post.
 
 Quite often we hear news stories about hacks involving credentials such as username and password that are leaked. Those credentials give access to key systems of the targeted organisation. The damage is often enormous, from impacting revenue streams to customer data leaks. It's no surprise that these types of vulnerabilities are in the [OWASP top 10](https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/).
 
