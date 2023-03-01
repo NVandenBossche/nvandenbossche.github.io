@@ -1,0 +1,281 @@
+<!doctype html><html dir=ltr lang=en data-theme=dark class=html><head>
+<title>
+My Journey of Building a Node.js App |
+Nicolas Vanden Bossche
+</title>
+<meta charset=utf-8><meta name=generator content="Hugo 0.91.2"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name=author content="Nicolas Vanden Bossche">
+<meta name=description content="
+          /nikɔla/
+    Technophile, dad, Salesforce architect, CTA.
+    
+
+
+    ">
+<link rel=stylesheet href=/scss/main.min.49fc8240b3a8ae4d6c73af4d7d5d0c3cc6b0b2f535a762659b03bb226a747802.css integrity="sha256-SfyCQLOork1sc69NfV0MPMawsvU1p2JlmwO7Imp0eAI=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=/css/markupHighlight.min.31b0a1f317f55c529a460897848c97436bb138b19c399b37de70d463a8bf6ed5.css integrity="sha256-MbCh8xf1XFKaRgiXhIyXQ2uxOLGcOZs33nDUY6i/btU=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=/fontawesome/css/fontawesome.min.69685904d5c2a0c6258d03c207b778c10466edf6cea928cc0164c376b0ad0930.css integrity="sha256-aWhZBNXCoMYljQPCB7d4wQRm7fbOqSjMAWTDdrCtCTA=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=/fontawesome/css/solid.min.6d585e78d28cce1200d39fb133c92ed83df01738da721d0f48fb6eac62d24e04.css integrity="sha256-bVheeNKMzhIA05+xM8ku2D3wFzjach0PSPturGLSTgQ=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=/fontawesome/css/brands.min.6b00d96498d59caa0dbcf9b49d30d821915291f2ceb0e19248523c8607ff43fa.css integrity="sha256-awDZZJjVnKoNvPm0nTDYIZFSkfLOsOGSSFI8hgf/Q/o=" crossorigin=anonymous type=text/css>
+<link rel="shortcut icon" href=/favicons/favicon.ico type=image/x-icon>
+<link rel=apple-touch-icon sizes=180x180 href=/favicons/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicons/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicons/favicon-16x16.png>
+<link rel=canonical href=https://nicolasvandenbossche.com/posts/2023/my-journey-of-building-nodejs/>
+<script type=text/javascript src=/js/anatole-header.min.46e6a54097480084f8f52c20ca1aa7425b4fad17029a887fd4017b12e311a72d.js integrity="sha256-RualQJdIAIT49SwgyhqnQltPrRcCmoh/1AF7EuMRpy0=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/anatole-theme-switcher.min.5557c8ff5617a01067ac258fd70b9b992506e379317b0da51e5e0f6e018b408a.js integrity="sha256-VVfI/1YXoBBnrCWP1wubmSUG43kxew2lHl4PbgGLQIo=" crossorigin=anonymous></script>
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="My Journey of Building a Node.js App">
+<meta name=twitter:description content="In this post, I&rsquo;ll walk through how I created my first Node.js app. I&rsquo;ll talk about adopting an existing app and how I rearchitected it.">
+<meta property="og:title" content="My Journey of Building a Node.js App">
+<meta property="og:description" content="In this post, I&rsquo;ll walk through how I created my first Node.js app. I&rsquo;ll talk about adopting an existing app and how I rearchitected it.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nicolasvandenbossche.com/posts/2023/my-journey-of-building-nodejs/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2023-02-28T08:35:55+01:00">
+<meta property="article:modified_time" content="2023-02-28T08:35:55+01:00"><meta property="og:site_name" content="NICOLAS VANDEN BOSSCHE">
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","articleSection":"posts","name":"My Journey of Building a Node.js App","headline":"My Journey of Building a Node.js App","alternativeHeadline":"","description":"
+      
+        In this post, I\u0026rsquo;ll walk through how I created my first Node.js app. I\u0026rsquo;ll talk about adopting an existing app and how I rearchitected it.
+
+
+      
+
+
+    ","inLanguage":"en-us","isFamilyFriendly":"true","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/nicolasvandenbossche.com\/posts\/2023\/my-journey-of-building-nodejs\/"},"author":{"@type":"Person","name":"Nicolas Vanden Bossche"},"creator":{"@type":"Person","name":"Nicolas Vanden Bossche"},"accountablePerson":{"@type":"Person","name":"Nicolas Vanden Bossche"},"copyrightHolder":{"@type":"Person","name":"Nicolas Vanden Bossche"},"copyrightYear":"2023","dateCreated":"2023-02-28T08:35:55.00Z","datePublished":"2023-02-28T08:35:55.00Z","dateModified":"2023-02-28T08:35:55.00Z","publisher":{"@type":"Organization","name":"Nicolas Vanden Bossche","url":"https://nicolasvandenbossche.com/","logo":{"@type":"ImageObject","url":"https:\/\/nicolasvandenbossche.com\/favicons\/favicon-32x32.png","width":"32","height":"32"}},"image":[],"url":"https:\/\/nicolasvandenbossche.com\/posts\/2023\/my-journey-of-building-nodejs\/","wordCount":"1183","genre":[],"keywords":["node","javascript","express","ejs","salesforce"]}</script>
+</head>
+<body class="body theme--dark">
+<div class=wrapper>
+<aside class=wrapper__sidebar><div class="sidebar
+animated fadeInDown">
+<div class=sidebar__content>
+<div class=sidebar__introduction>
+<img class=sidebar__introduction-profileimage src=/images/profile.jpg alt="profile picture">
+<h1 class=sidebar__introduction-title>
+<a href=/>NICOLAS VANDEN BOSSCHE</a>
+</h1>
+<div class=sidebar__introduction-description>
+<p> /nikɔla/<br> Technophile, dad, Salesforce architect, CTA.<br> </p>
+</div>
+</div>
+<ul class=sidebar__list>
+<li class=sidebar__list-item>
+<a href=https://www.linkedin.com/in/nicolas-vanden-bossche/ rel=me aria-label=Linkedin title=Linkedin>
+<i class="fab fa-linkedin fa-2x" aria-hidden=true></i>
+</a>
+</li>
+<li class=sidebar__list-item>
+<a href=https://twitter.com/nvandenbossche/ rel=me aria-label=Twitter title=Twitter>
+<i class="fab fa-twitter fa-2x" aria-hidden=true></i>
+</a>
+</li>
+<li class=sidebar__list-item>
+<a href=https://trailblazer.me/id/nvandenbossche rel=me aria-label=Trailblazer.me title=Trailblazer.me>
+<i class="fab fa-salesforce fa-2x" aria-hidden=true></i>
+</a>
+</li>
+<li class=sidebar__list-item>
+<a href=https://github.com/nvandenbossche rel=me aria-label=Github title=Github>
+<i class="fab fa-github fa-2x" aria-hidden=true></i>
+</a>
+</li>
+</ul>
+</div><footer class="footer footer__sidebar">
+<ul class=footer__list>
+<li class=footer__item>
+&copy;
+2023 Nicolas Vanden Bossche
+</li>
+</ul>
+</footer></div>
+</aside>
+<main class=wrapper__main>
+<header class=header><div class="animated fadeInDown">
+<a role=button class=navbar-burger data-target=navMenu aria-label=menu aria-expanded=false>
+<span aria-hidden=true class=navbar-burger__line></span>
+<span aria-hidden=true class=navbar-burger__line></span>
+<span aria-hidden=true class=navbar-burger__line></span>
+</a>
+<nav class=nav>
+<ul class=nav__list id=navMenu>
+<li class=nav__list-item>
+<a href=/ title>Home</a>
+</li>
+<li class=nav__list-item>
+<a href=/posts/ title>Posts</a>
+</li>
+<li class=nav__list-item>
+<a href=/about/ title>About</a>
+</li>
+</ul>
+<ul class="nav__list nav__list--end">
+<li class=nav__list-item>
+<div class=themeswitch>
+<a title="Switch Theme">
+<i class="fas fa-adjust fa-fw" aria-hidden=true></i>
+</a>
+</div>
+</li>
+</ul>
+</nav>
+</div>
+</header>
+<div class="post
+animated fadeInDown">
+<div class=post__content>
+<h1>My Journey of Building a Node.js App</h1>
+<p>If you&rsquo;ve followed me for a while, you know about my <a href=https://github.com/NVandenBossche/salesforce-iam-flows>Salesforce OAuth Flows app</a>. It&rsquo;s an app written in Node.js that I&rsquo;ve created. Its goal is to better understand OAuth flows for Salesforce.</p>
+<p>In this blog post, we&rsquo;re going to dive into the architecture of the app and its evolution over time. This will give us a good overview of how to build an application using Node.js. Sprinkled with some Salesforce goodness.</p>
+<h2 id=inheriting-code>Inheriting Code</h2>
+<p>I didn&rsquo;t start from scratch when creating this app. Jitendra Zaa had already created a <a href=https://github.com/JitendraZaa/OAuthFlows>Node.js app with some flows</a>. I was inspired by it, cloned it, and started adding my own flows into the mix. Over time, I also used this app to learn more about JavaScript, Node.js and the Express web app framework that Jitendra was using.</p>
+<p>The more I learned about these technologies, the more I started to clean up the code. The app was originally built for a quick prototype. My plans are to make it the go-to practical resource for people to learn about Salesforce Identity & Access Management. So I started incorporating best practices from JavaScript and Node.js.</p>
+<p>I&rsquo;m not an expert in any way, and I don&rsquo;t expect anyone to use this in production. However, having a nice codebase comes with a certain sense of fulfilment.</p>
+<p>Next, we&rsquo;ll walk through the revised application architecture.</p>
+<h2 id=understanding-the-monolith>Understanding the Monolith</h2>
+<p>The original application had a monolithic design. There was a single JavaScript file to represent the server. There was a single JavaScript file to handle client-side logic. There was one HTML file for each page, just like in the early days of the web.</p>
+<p>
+<img src=/images/posts/2023/journey-node/original-structure.jpg alt="A screenshot of the original structure of the architecture. It shows monolithic files.">
+</p>
+<p>Modern JavaScript web applications provide much more advanced capabilities. These capabilities allow for adhering to best practices such as separation of concerns. They promote reuse of common components like a library for URL encoding. But they also come with more difficult to manage dependencies from external libraries and frameworks.</p>
+<p>The first thing I did was to identify the different frameworks and components this app was using. I knew from the beginning that this app was written in <em>Node.js</em>. I found out it adopted the <em>Express</em> JavaScript framework by looking at require statements inside the JavaScript files. And in some of the views, I saw <em>Embedded JavaScript (EJS)</em> files instead of HTML.</p>
+<p>It was crucial to understand that Node.js is used to write server-side logic. This is very different from what JavaScript is typically doing: client-side logic. This means that with a Node.js app, you can write both the front-end and the back-end in JavaScript. A single language for both, that took me back to university and Java Server Pages.</p>
+<p>Express added a framework on top of Node that is made for single-page applications like the one I was building. Especially the built-in routing turned out to be useful.</p>
+<p>Embedded JavaScript (EJS) is the final pieces of the puzzle. This is what&rsquo;s called a templating engine. It allows you to build web applications made out of smaller components. In hindsight that smells a lot like &ldquo;web components&rdquo; and <a href=https://lwc.dev/>LWC</a>. That might be another project to see if I can build this app with <a href=https://developer.salesforce.com/docs/platform/lwr/guide>LWR on Node.js</a>.</p>
+<h2 id=adding-more-flows>Adding More Flows</h2>
+<p>Once I more or less understood what each technology is used for, I started to make the code my own. At first I didn&rsquo;t change too much about the structure. I focused on adding new flows like the SAML Bearer Token flow.</p>
+<p>It took me a while to get all the flows working. There was an upside of this trial-and-error though. I started to better understand how each flow worked. Errors made sense and I was able to troubleshoot them in no time. One by one each flow was working against my personal developer org. I tackled Device, Username-Password, SAML Bearer, Refresh, and even SAML Assertion flow!</p>
+<p>There was one other thing that bothered me. There was no way to secure sensitive data like credentials, tokens and keys. I decided to take care of that before putting an actual application online. I leveraged Heroku and its environment variables, since Heroku was at the time still free.</p>
+<p>After all this, there was one problem remaining. The monolith had become even bigger by adding all those flows! It became more and more difficult to bugfix or extend the application. I was scrolling through code instead of working on it.</p>
+<h2 id=breaking-down-the-monolith>Breaking Down the Monolith</h2>
+<p>The Server.js file that represents the Node.js back-end server was becoming enormous. There was a lot of logic seeping into the file. I decided to move all logic into separate classes, then import those classes. I reduced the number of lines in the <a href=https://github.com/NVandenBossche/salesforce-iam-flows/blob/v1.0/Server.js>main server file</a> by 50%! We can see one of the resulting endpoints below. Nice and clean.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>156
+</span><span class=lnt>157
+</span><span class=lnt>158
+</span><span class=lnt>159
+</span><span class=lnt>160
+</span><span class=lnt>161
+</span><span class=lnt>162
+</span><span class=lnt>163
+</span><span class=lnt>164
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=nx>app</span><span class=p>.</span><span class=nx>get</span><span class=p>(</span><span class=s1>&#39;/jwt&#39;</span><span class=p>,</span> <span class=kd>function</span> <span class=p>(</span><span class=nx>req</span><span class=p>,</span> <span class=nx>res</span><span class=p>)</span> <span class=p>{</span>
+<span class=c1>// Instantiate JWT service and generate post request
+</span><span class=c1></span><span class=nx>authInstance</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>JwtService</span><span class=p>(</span><span class=nx>req</span><span class=p>.</span><span class=nx>query</span><span class=p>.</span><span class=nx>isSandbox</span><span class=p>);</span>
+<span class=kd>let</span> <span class=nx>postRequest</span> <span class=o>=</span> <span class=nx>authInstance</span><span class=p>.</span><span class=nx>generateJwtRequest</span><span class=p>();</span>
+
+    <span class=c1>// Handle the response of the post request
+</span><span class=c1></span>    <span class=nx>handlePostRequest</span><span class=p>(</span><span class=nx>postRequest</span><span class=p>,</span> <span class=nx>res</span><span class=p>);</span>
+
+<span class=p>});</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>This had the added value of splitting up the codebase into logical files. I could now easily find each flow&rsquo;s logic by navigating to its dedicated file.</p>
+<p>
+<img src=/images/posts/2023/journey-node/original-structure.jpg alt="A screenshot of the revised structure of the architecture. It shows modularised files.">
+</p>
+<p>And the code inside could also be neatly partitioned into logical components. We can see the example for <a href=https://github.com/NVandenBossche/salesforce-iam-flows/blob/v1.0/services/jwt.js>JWT</a> below.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=kr>const</span> <span class=p>{</span> <span class=nx>AuthService</span> <span class=p>}</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s2>&#34;./auth&#34;</span><span class=p>);</span>
+
+<span class=kd>var</span> <span class=nx>base64url</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s2>&#34;base64-url&#34;</span><span class=p>);</span>
+
+<span class=kr>class</span> <span class=nx>JwtService</span> <span class=kr>extends</span> <span class=nx>AuthService</span> <span class=p>{</span>
+<span class=nx>constructor</span><span class=p>(</span><span class=nx>isSandbox</span><span class=p>)</span> <span class=p>{</span>
+<span class=kr>super</span><span class=p>(</span><span class=nx>isSandbox</span><span class=p>);</span>
+<span class=p>}</span>
+
+    <span class=cm>/**
+</span><span class=cm>    * Create a JSON Web Token that is signed using the private key stored in &#39;key.pem&#39;.
+</span><span class=cm>    * It first creates the Claims JSON and passes it to the signJwtClaims method.
+</span><span class=cm>    */</span>
+    <span class=nx>getSignedJwt</span><span class=p>()</span> <span class=p>{</span>
+        <span class=kd>var</span> <span class=nx>claims</span> <span class=o>=</span> <span class=p>{</span>
+            <span class=nx>iss</span><span class=o>:</span> <span class=k>this</span><span class=p>.</span><span class=nx>clientId</span><span class=p>,</span>
+            <span class=nx>sub</span><span class=o>:</span> <span class=k>this</span><span class=p>.</span><span class=nx>username</span><span class=p>,</span>
+            <span class=nx>aud</span><span class=o>:</span> <span class=k>this</span><span class=p>.</span><span class=nx>getAudience</span><span class=p>(),</span>
+            <span class=nx>exp</span><span class=o>:</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>floor</span><span class=p>(</span><span class=nb>Date</span><span class=p>.</span><span class=nx>now</span><span class=p>()</span> <span class=o>/</span> <span class=mi>1000</span><span class=p>)</span> <span class=o>+</span> <span class=mi>60</span> <span class=o>*</span> <span class=mi>3</span><span class=p>,</span> <span class=c1>// valid for 3 minutes
+</span><span class=c1></span>        <span class=p>};</span>
+
+        <span class=k>return</span> <span class=k>this</span><span class=p>.</span><span class=nx>signJwtClaims</span><span class=p>(</span><span class=nx>claims</span><span class=p>);</span>
+    <span class=p>}</span>
+
+    <span class=nx>generateJwtRequest</span><span class=p>()</span> <span class=p>{</span>
+        <span class=c1>// Set parameters for POST request
+</span><span class=c1></span>        <span class=kr>const</span> <span class=nx>grantType</span> <span class=o>=</span> <span class=s2>&#34;urn:ietf:params:oauth:grant-type:jwt-bearer&#34;</span><span class=p>;</span>
+        <span class=kd>let</span> <span class=nx>endpointUrl</span> <span class=o>=</span> <span class=k>this</span><span class=p>.</span><span class=nx>getTokenEndpoint</span><span class=p>();</span>
+        <span class=kd>let</span> <span class=nx>token</span> <span class=o>=</span> <span class=k>this</span><span class=p>.</span><span class=nx>getSignedJwt</span><span class=p>();</span>
+        <span class=kd>let</span> <span class=nx>paramBody</span> <span class=o>=</span>
+            <span class=s2>&#34;grant_type=&#34;</span> <span class=o>+</span> <span class=nx>base64url</span><span class=p>.</span><span class=nx>escape</span><span class=p>(</span><span class=nx>grantType</span><span class=p>)</span> <span class=o>+</span> <span class=s2>&#34;&amp;assertion=&#34;</span> <span class=o>+</span> <span class=nx>token</span><span class=p>;</span>
+
+        <span class=c1>// Construct POST request based on body and endpoint
+</span><span class=c1></span>        <span class=k>return</span> <span class=k>this</span><span class=p>.</span><span class=nx>createPostRequest</span><span class=p>(</span><span class=nx>endpointUrl</span><span class=p>,</span> <span class=nx>paramBody</span><span class=p>);</span>
+    <span class=p>}</span>
+
+<span class=p>}</span>
+
+<span class=nx>exports</span><span class=p>.</span><span class=nx>JwtService</span> <span class=o>=</span> <span class=nx>JwtService</span><span class=p>;</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id=conclusion>Conclusion</h2>
+<p>We&rsquo;ve seen how you can build a web application using Node.js, Express and EJS. It&rsquo;s important to keep such an application maintainable. This means working on modularising and simplifying the architecture. We&rsquo;ve walked through how you can achieve this.</p>
+<p>Hopefully this will inspire you to create your own Node.js app, or do something cool with our Identity APIs. Of course, I&rsquo;m not a professional Node.js developer. There are for sure many things that I can improve in this app, so let me know how!</p>
+<p>Recently, I&rsquo;ve done an overhaul of the app so that the front-end is more flexible, even configurable. This means that I can add new flows to the app by updating a configuration file. Additionally, it makes the source code much easier to understand. That is something for a next blog post.</p>
+</div>
+<div class=post__footer>
+<span><a class=tag href=/tags/node/>node</a><a class=tag href=/tags/javascript/>javascript</a><a class=tag href=/tags/express/>express</a><a class=tag href=/tags/ejs/>ejs</a><a class=tag href=/tags/salesforce/>salesforce</a></span>
+</div>
+</div>
+</main>
+</div><footer class="footer footer__base">
+<ul class=footer__list>
+<li class=footer__item>
+&copy;
+2023 Nicolas Vanden Bossche
+</li>
+</ul>
+</footer></body>
+</html>
