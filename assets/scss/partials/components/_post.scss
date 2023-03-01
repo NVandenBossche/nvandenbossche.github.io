@@ -242,6 +242,11 @@
                 border: 1px solid t("primary-lighter");
                 border-radius: 2px;
             }
+
+            span {
+                font-family: monospace;
+                font-size: 12px;
+            }
         }
 
         pre {
