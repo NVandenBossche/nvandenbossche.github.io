@@ -3,8 +3,8 @@ title: "My Journey of Building a Node.js App"
 date: 2023-02-28T08:35:55+01:00
 tags: [node, javascript, express, ejs, salesforce]
 thumbnail: "/images/posts/2023/journey-node/node-logo.png"
-summary: ""
-draft: true
+summary: "In this post, I'll walk through how I created my first Node.js app. I'll talk about adopting an existing app and how I rearchitected it."
+draft: false
 ---
 
 If you've followed me for a while, you know about my [Salesforce OAuth Flows app](https://github.com/NVandenBossche/salesforce-iam-flows). It's an app written in Node.js that I've created. Its goal is to better understand OAuth flows for Salesforce.
