@@ -1,0 +1,173 @@
+<!doctype html><html dir=ltr lang=en data-theme=dark class=html><head>
+<title>
+Practice Your OAuth Flows |
+Nicolas Vanden Bossche
+</title>
+<meta charset=utf-8><meta name=generator content="Hugo 0.91.2"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name=author content="Nicolas Vanden Bossche">
+<meta name=description content="
+          /nikɔla/
+    Technophile, dad, Salesforce architect, CTA.
+    
+
+
+    ">
+<link rel=stylesheet href=/scss/main.min.49fc8240b3a8ae4d6c73af4d7d5d0c3cc6b0b2f535a762659b03bb226a747802.css integrity="sha256-SfyCQLOork1sc69NfV0MPMawsvU1p2JlmwO7Imp0eAI=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=/css/markupHighlight.min.31b0a1f317f55c529a460897848c97436bb138b19c399b37de70d463a8bf6ed5.css integrity="sha256-MbCh8xf1XFKaRgiXhIyXQ2uxOLGcOZs33nDUY6i/btU=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=/fontawesome/css/fontawesome.min.69685904d5c2a0c6258d03c207b778c10466edf6cea928cc0164c376b0ad0930.css integrity="sha256-aWhZBNXCoMYljQPCB7d4wQRm7fbOqSjMAWTDdrCtCTA=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=/fontawesome/css/solid.min.6d585e78d28cce1200d39fb133c92ed83df01738da721d0f48fb6eac62d24e04.css integrity="sha256-bVheeNKMzhIA05+xM8ku2D3wFzjach0PSPturGLSTgQ=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=/fontawesome/css/brands.min.6b00d96498d59caa0dbcf9b49d30d821915291f2ceb0e19248523c8607ff43fa.css integrity="sha256-awDZZJjVnKoNvPm0nTDYIZFSkfLOsOGSSFI8hgf/Q/o=" crossorigin=anonymous type=text/css>
+<link rel="shortcut icon" href=/favicons/favicon.ico type=image/x-icon>
+<link rel=apple-touch-icon sizes=180x180 href=/favicons/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicons/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicons/favicon-16x16.png>
+<link rel=canonical href=https://nicolasvandenbossche.com/posts/2023/practice-your-oauth-flows/>
+<script type=text/javascript src=/js/anatole-header.min.46e6a54097480084f8f52c20ca1aa7425b4fad17029a887fd4017b12e311a72d.js integrity="sha256-RualQJdIAIT49SwgyhqnQltPrRcCmoh/1AF7EuMRpy0=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/anatole-theme-switcher.min.5557c8ff5617a01067ac258fd70b9b992506e379317b0da51e5e0f6e018b408a.js integrity="sha256-VVfI/1YXoBBnrCWP1wubmSUG43kxew2lHl4PbgGLQIo=" crossorigin=anonymous></script>
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Practice Your OAuth Flows">
+<meta name=twitter:description content="A major update to my OAuth application, which takes you step-by-step through each flow.">
+<meta property="og:title" content="Practice Your OAuth Flows">
+<meta property="og:description" content="A major update to my OAuth application, which takes you step-by-step through each flow.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nicolasvandenbossche.com/posts/2023/practice-your-oauth-flows/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2023-06-12T17:15:47+02:00">
+<meta property="article:modified_time" content="2023-06-12T17:15:47+02:00"><meta property="og:site_name" content="NICOLAS VANDEN BOSSCHE">
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","articleSection":"posts","name":"Practice Your OAuth Flows","headline":"Practice Your OAuth Flows","alternativeHeadline":"","description":"
+      
+        A major update to my OAuth application, which takes you step-by-step through each flow.
+
+
+      
+
+
+    ","inLanguage":"en-us","isFamilyFriendly":"true","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/nicolasvandenbossche.com\/posts\/2023\/practice-your-oauth-flows\/"},"author":{"@type":"Person","name":"Nicolas Vanden Bossche"},"creator":{"@type":"Person","name":"Nicolas Vanden Bossche"},"accountablePerson":{"@type":"Person","name":"Nicolas Vanden Bossche"},"copyrightHolder":{"@type":"Person","name":"Nicolas Vanden Bossche"},"copyrightYear":"2023","dateCreated":"2023-06-12T17:15:47.00Z","datePublished":"2023-06-12T17:15:47.00Z","dateModified":"2023-06-12T17:15:47.00Z","publisher":{"@type":"Organization","name":"Nicolas Vanden Bossche","url":"https://nicolasvandenbossche.com/","logo":{"@type":"ImageObject","url":"https:\/\/nicolasvandenbossche.com\/favicons\/favicon-32x32.png","width":"32","height":"32"}},"image":[],"url":"https:\/\/nicolasvandenbossche.com\/posts\/2023\/practice-your-oauth-flows\/","wordCount":"576","genre":[],"keywords":[]}</script>
+</head>
+<body class="body theme--dark">
+<div class=wrapper>
+<aside class=wrapper__sidebar><div class="sidebar
+animated fadeInDown">
+<div class=sidebar__content>
+<div class=sidebar__introduction>
+<img class=sidebar__introduction-profileimage src=/images/profile.jpg alt="profile picture">
+<h1 class=sidebar__introduction-title>
+<a href=/>NICOLAS VANDEN BOSSCHE</a>
+</h1>
+<div class=sidebar__introduction-description>
+<p> /nikɔla/<br> Technophile, dad, Salesforce architect, CTA.<br> </p>
+</div>
+</div>
+<ul class=sidebar__list>
+<li class=sidebar__list-item>
+<a href=https://www.linkedin.com/in/nicolas-vanden-bossche/ rel=me aria-label=Linkedin title=Linkedin>
+<i class="fab fa-linkedin fa-2x" aria-hidden=true></i>
+</a>
+</li>
+<li class=sidebar__list-item>
+<a href=https://twitter.com/nvandenbossche/ rel=me aria-label=Twitter title=Twitter>
+<i class="fab fa-twitter fa-2x" aria-hidden=true></i>
+</a>
+</li>
+<li class=sidebar__list-item>
+<a href=https://trailblazer.me/id/nvandenbossche rel=me aria-label=Trailblazer.me title=Trailblazer.me>
+<i class="fab fa-salesforce fa-2x" aria-hidden=true></i>
+</a>
+</li>
+<li class=sidebar__list-item>
+<a href=https://github.com/nvandenbossche rel=me aria-label=Github title=Github>
+<i class="fab fa-github fa-2x" aria-hidden=true></i>
+</a>
+</li>
+</ul>
+</div><footer class="footer footer__sidebar">
+<ul class=footer__list>
+<li class=footer__item>
+&copy;
+2023 Nicolas Vanden Bossche
+</li>
+</ul>
+</footer></div>
+</aside>
+<main class=wrapper__main>
+<header class=header><div class="animated fadeInDown">
+<a role=button class=navbar-burger data-target=navMenu aria-label=menu aria-expanded=false>
+<span aria-hidden=true class=navbar-burger__line></span>
+<span aria-hidden=true class=navbar-burger__line></span>
+<span aria-hidden=true class=navbar-burger__line></span>
+</a>
+<nav class=nav>
+<ul class=nav__list id=navMenu>
+<li class=nav__list-item>
+<a href=/ title>Home</a>
+</li>
+<li class=nav__list-item>
+<a href=/posts/ title>Posts</a>
+</li>
+<li class=nav__list-item>
+<a href=/about/ title>About</a>
+</li>
+</ul>
+<ul class="nav__list nav__list--end">
+<li class=nav__list-item>
+<div class=themeswitch>
+<a title="Switch Theme">
+<i class="fas fa-adjust fa-fw" aria-hidden=true></i>
+</a>
+</div>
+</li>
+</ul>
+</nav>
+</div>
+</header>
+<div class="post
+animated fadeInDown">
+<div class=post__content>
+<h1>Practice Your OAuth Flows</h1>
+<p>Something&rsquo;s in the air&mldr; It&rsquo;s a fresh new update of my Salesforce OAuth Flows application! I&rsquo;ve actually done a major overhaul of the front-end. Everything is still relying on Node as back-end and Express as front-end, but the main changes are in the user experience.</p>
+<p>In this new release, you can walk through each OAuth flow in a step-by-step fashion. This allows you to inspect what is happening in each part of the flow. You can see which input is provided towards the Salesforce OAuth endpoints and what is being returned. The goal is to give an even deeper insight into these tricky beasts.</p>
+<p>If you can&rsquo;t wait to get started, I&rsquo;ve made it even easier to run the application locally. Just go to the <a href=https://github.com/NVandenBossche/salesforce-iam-flows>project&rsquo;s GitHub page</a> and read the README.</p>
+<h2 id=inspiration>Inspiration</h2>
+<p>This overhaul idea came after doing some Trailhead modules. I ran into a module on OpenID Connect. The hands-on section of this module was using a Heroku app to connect to your Salesforce Trailhead environment, not unlike the Node app I&rsquo;d already built. You can find this app <a href=https://openidconnect.herokuapp.com/>here</a>.</p>
+<p>I knew that someone at Salesforce must&rsquo;ve created it, so I reached out to some colleagues. To my pleasant surprise, I not only got approval to reuse the user experience, I even got access to the source code! From that moment on, the goal was set!</p>
+<p>
+<img src=/images/posts/2023/practice-oauth/goalsetting.jpg alt="A meme with a guy looking frantic next to a wall full of paper and red strings.">
+</p>
+<h2 id=approach>Approach</h2>
+<p>My plan is to create a more detailed post on how I achieved this from a technical point of view, but here I want to focus on the actual workings of the app. The only thing you need to know is that it took a whole bunch of messing with CSS, a new understanding of server-side JavaScript, and endless patience.</p>
+<p>In the end I successfully created a very similar user experience as the original app. There&rsquo;s still many tweaks that I&rsquo;d like to do, but for now it&rsquo;s great for a pilot release.</p>
+<h2 id=home-screen>Home Screen</h2>
+<p>If you&rsquo;ve seen the home screen before, you might notice that the layout changed slightly. It&rsquo;s now easier than ever to run the flow you want. Just navigate to your desired flow in the navigation bar, then hit &ldquo;Launch Flow&rdquo;.</p>
+<p>
+<img src=/images/posts/2023/practice-oauth/launchflow.png alt="A screenshot of the application showing the navigation bar and the &amp;ldquo;Launch Flow&amp;rdquo; button for the User-Agent flow.">
+</p>
+<p>For now you can choose from 10 flows. There have been new flows added to Salesforce Identity since then. It&rsquo;s definitely one of my goals to add more flows to the list.</p>
+<h2 id=flow-screen>Flow Screen</h2>
+<p>Once you&rsquo;ve launched the flow, it&rsquo;s very different from the previous version of the app. You no longer see the screen redirecting a couple of times before showing you the query output. Instead, you&rsquo;ll see that no request has been made yet. The data that you&rsquo;ve entered in your <code>.env</code> file will be visible, e.g. your client ID and secret.</p>
+<p>
+<img src=/images/posts/2023/practice-oauth/step1.png alt="A screenshot of the application showing the first step of the User-Agent flow.">
+</p>
+<p>By clicking &ldquo;Next&rdquo;, you will execute the next step in the OAuth flow. You will see the request that was made, as well as the reply received.</p>
+<p>
+<img src=/images/posts/2023/practice-oauth/step2.png alt="A screenshot of the application showing the second step of the User-Agent flow, while also showing the request and reply from the previous action.">
+</p>
+<p>Depending on the flow, there might be more steps to go through. You can keep clicking next and inspect the request and reply sent to and received from Salesforce. Until you finally receive the response to a simple SOQL query, indicating a working access token.</p>
+<p>
+<img src=/images/posts/2023/practice-oauth/finalstep.png alt="A screenshot of the application showing the final step of the User-Agent flow, showing a successful query execution.">
+</p>
+<h2 id=conclusion>Conclusion</h2>
+<p>With this brief overview, we&rsquo;ve seen how you can leverage the Node app to learn more about different OAuth flows for Salesforce. Take it for a spin yourself!</p>
+<p>Any questions, I&rsquo;m more than happy to chat about this topic. So just reach out on LinkedIn!</p>
+</div>
+<div class=post__footer>
+</div>
+</div>
+</main>
+</div><footer class="footer footer__base">
+<ul class=footer__list>
+<li class=footer__item>
+&copy;
+2023 Nicolas Vanden Bossche
+</li>
+</ul>
+</footer></body>
+</html>
