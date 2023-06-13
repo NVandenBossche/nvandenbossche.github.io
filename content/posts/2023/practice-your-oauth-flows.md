@@ -13,6 +13,8 @@ In this new release, you can walk through each OAuth flow in a step-by-step fash
 
 If you can't wait to get started, I've made it even easier to run the application locally. Just go to the [project's GitHub page](https://github.com/NVandenBossche/salesforce-iam-flows) and read the README.
 
+![Practice Your OAuth Flows, by Nicolas Vanden Bossche](/images/posts/2023/practice-oauth/header.png)
+
 ## Inspiration
 
 This overhaul idea came after doing some Trailhead modules. I ran into a module on OpenID Connect. The hands-on section of this module was using a Heroku app to connect to your Salesforce Trailhead environment, not unlike the Node app I'd already built. You can find this app [here](https://openidconnect.herokuapp.com/).
