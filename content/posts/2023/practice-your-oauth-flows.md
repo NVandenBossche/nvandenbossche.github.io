@@ -1,7 +1,7 @@
 ---
 title: "Practice Your OAuth Flows"
 date: 2023-06-12T17:15:47+02:00
-tags: []
+tags: [node, salesforce, oauth, learning]
 thumbnail: "/images/posts/2023/practice-oauth/oauth.png"
 summary: "A major update to my OAuth application, which takes you step-by-step through each flow."
 draft: false
