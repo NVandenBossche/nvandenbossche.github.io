@@ -16,7 +16,7 @@ tags:
     ]
 thumbnail: "/images/posts/2025/pure-unit-testing/apex-unit-testing-icon.webp"
 summary: "Write pure Apex unit tests that are isolated from the database and external dependencies. You will achieve faster deployments, more reliable code, and easier maintenance in Salesforce development."
-draft: true
+draft: false
 ---
 
 In Salesforce development, Apex unit tests are key to reliable deployments. Yet, many tests aren't true unit tests. They rely on database operations, insert records, and trigger Salesforce's order of execution.
