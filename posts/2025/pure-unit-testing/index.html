@@ -1,0 +1,304 @@
+<!doctype html><html dir=ltr lang=en data-theme=dark class=html><head>
+<title>
+The Secret to Reliable Salesforce Deployments: Pure Unit Testing |
+Nicolas Vanden Bossche
+</title>
+<meta charset=utf-8><meta name=generator content="Hugo 0.91.2"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name=author content="Nicolas Vanden Bossche">
+<meta name=description content="
+          /nikɔla/
+    Technophile, dad, Salesforce architect, CTA.
+    
+
+
+    ">
+<link rel=stylesheet href=/scss/main.min.4677edb1d56a48b362f43753d322309aad55329cddc57dadd527d36788890b59.css integrity="sha256-RnftsdVqSLNi9DdT0yIwmq1VMpzdxX2t1SfTZ4iJC1k=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=/css/markupHighlight.min.31b0a1f317f55c529a460897848c97436bb138b19c399b37de70d463a8bf6ed5.css integrity="sha256-MbCh8xf1XFKaRgiXhIyXQ2uxOLGcOZs33nDUY6i/btU=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=/fontawesome/css/fontawesome.min.69685904d5c2a0c6258d03c207b778c10466edf6cea928cc0164c376b0ad0930.css integrity="sha256-aWhZBNXCoMYljQPCB7d4wQRm7fbOqSjMAWTDdrCtCTA=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=/fontawesome/css/solid.min.6d585e78d28cce1200d39fb133c92ed83df01738da721d0f48fb6eac62d24e04.css integrity="sha256-bVheeNKMzhIA05+xM8ku2D3wFzjach0PSPturGLSTgQ=" crossorigin=anonymous type=text/css>
+<link rel=stylesheet href=/fontawesome/css/brands.min.6b00d96498d59caa0dbcf9b49d30d821915291f2ceb0e19248523c8607ff43fa.css integrity="sha256-awDZZJjVnKoNvPm0nTDYIZFSkfLOsOGSSFI8hgf/Q/o=" crossorigin=anonymous type=text/css>
+<link rel="shortcut icon" href=/favicons/favicon.ico type=image/x-icon>
+<link rel=apple-touch-icon sizes=180x180 href=/favicons/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicons/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicons/favicon-16x16.png>
+<link rel=canonical href=https://nicolasvandenbossche.com/posts/2025/pure-unit-testing/>
+<script type=text/javascript src=/js/anatole-header.min.46e6a54097480084f8f52c20ca1aa7425b4fad17029a887fd4017b12e311a72d.js integrity="sha256-RualQJdIAIT49SwgyhqnQltPrRcCmoh/1AF7EuMRpy0=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/anatole-theme-switcher.min.5557c8ff5617a01067ac258fd70b9b992506e379317b0da51e5e0f6e018b408a.js integrity="sha256-VVfI/1YXoBBnrCWP1wubmSUG43kxew2lHl4PbgGLQIo=" crossorigin=anonymous></script>
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="The Secret to Reliable Salesforce Deployments: Pure Unit Testing">
+<meta name=twitter:description content="Write pure Apex unit tests that are isolated from the database and external dependencies. You will achieve faster deployments, more reliable code, and easier maintenance in Salesforce development.">
+<meta property="og:title" content="The Secret to Reliable Salesforce Deployments: Pure Unit Testing">
+<meta property="og:description" content="Write pure Apex unit tests that are isolated from the database and external dependencies. You will achieve faster deployments, more reliable code, and easier maintenance in Salesforce development.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nicolasvandenbossche.com/posts/2025/pure-unit-testing/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2025-04-22T11:34:01+02:00">
+<meta property="article:modified_time" content="2025-04-22T11:34:01+02:00"><meta property="og:site_name" content="NICOLAS VANDEN BOSSCHE">
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","articleSection":"posts","name":"The Secret to Reliable Salesforce Deployments: Pure Unit Testing","headline":"The Secret to Reliable Salesforce Deployments: Pure Unit Testing","alternativeHeadline":"","description":"
+      
+        Write pure Apex unit tests that are isolated from the database and external dependencies. You will achieve faster deployments, more reliable code, and easier maintenance in Salesforce development.
+
+
+      
+
+
+    ","inLanguage":"en-us","isFamilyFriendly":"true","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/nicolasvandenbossche.com\/posts\/2025\/pure-unit-testing\/"},"author":{"@type":"Person","name":"Nicolas Vanden Bossche"},"creator":{"@type":"Person","name":"Nicolas Vanden Bossche"},"accountablePerson":{"@type":"Person","name":"Nicolas Vanden Bossche"},"copyrightHolder":{"@type":"Person","name":"Nicolas Vanden Bossche"},"copyrightYear":"2025","dateCreated":"2025-04-22T11:34:01.00Z","datePublished":"2025-04-22T11:34:01.00Z","dateModified":"2025-04-22T11:34:01.00Z","publisher":{"@type":"Organization","name":"Nicolas Vanden Bossche","url":"https://nicolasvandenbossche.com/","logo":{"@type":"ImageObject","url":"https:\/\/nicolasvandenbossche.com\/favicons\/favicon-32x32.png","width":"32","height":"32"}},"image":[],"url":"https:\/\/nicolasvandenbossche.com\/posts\/2025\/pure-unit-testing\/","wordCount":"1127","genre":[],"keywords":["apex","unit testing","unit","testing","pure","shift left","deployment","performance","dependency injection","mocking"]}</script>
+</head>
+<body class="body theme--dark">
+<div class=wrapper>
+<aside class=wrapper__sidebar><div class="sidebar
+animated fadeInDown">
+<div class=sidebar__content>
+<div class=sidebar__introduction>
+<img class=sidebar__introduction-profileimage src=/images/profile.jpg alt="profile picture">
+<h1 class=sidebar__introduction-title>
+<a href=/>NICOLAS VANDEN BOSSCHE</a>
+</h1>
+<div class=sidebar__introduction-description>
+<p> /nikɔla/<br> Technophile, dad, Salesforce architect, CTA.<br> </p>
+</div>
+</div>
+<ul class=sidebar__list>
+<li class=sidebar__list-item>
+<a href=https://www.linkedin.com/in/nicolas-vanden-bossche/ rel=me aria-label=Linkedin title=Linkedin>
+<i class="fab fa-linkedin fa-2x" aria-hidden=true></i>
+</a>
+</li>
+<li class=sidebar__list-item>
+<a href=https://twitter.com/nvandenbossche/ rel=me aria-label=Twitter title=Twitter>
+<i class="fab fa-twitter fa-2x" aria-hidden=true></i>
+</a>
+</li>
+<li class=sidebar__list-item>
+<a href=https://trailblazer.me/id/nvandenbossche rel=me aria-label=Trailblazer.me title=Trailblazer.me>
+<i class="fab fa-salesforce fa-2x" aria-hidden=true></i>
+</a>
+</li>
+<li class=sidebar__list-item>
+<a href=https://github.com/nvandenbossche rel=me aria-label=Github title=Github>
+<i class="fab fa-github fa-2x" aria-hidden=true></i>
+</a>
+</li>
+</ul>
+</div><footer class="footer footer__sidebar">
+<ul class=footer__list>
+<li class=footer__item>
+&copy;
+2025 Nicolas Vanden Bossche
+</li>
+</ul>
+</footer></div>
+</aside>
+<main class=wrapper__main>
+<header class=header><div class="animated fadeInDown">
+<a role=button class=navbar-burger data-target=navMenu aria-label=menu aria-expanded=false>
+<span aria-hidden=true class=navbar-burger__line></span>
+<span aria-hidden=true class=navbar-burger__line></span>
+<span aria-hidden=true class=navbar-burger__line></span>
+</a>
+<nav class=nav>
+<ul class=nav__list id=navMenu>
+<li class=nav__list-item>
+<a href=/ title>Home</a>
+</li>
+<li class=nav__list-item>
+<a href=/posts/ title>Posts</a>
+</li>
+<li class=nav__list-item>
+<a href=/about/ title>About</a>
+</li>
+</ul>
+<ul class="nav__list nav__list--end">
+<li class=nav__list-item>
+<div class=themeswitch>
+<a title="Switch Theme">
+<i class="fas fa-adjust fa-fw" aria-hidden=true></i>
+</a>
+</div>
+</li>
+</ul>
+</nav>
+</div>
+</header>
+<div class="post
+animated fadeInDown">
+<div class=post__content>
+<h1>The Secret to Reliable Salesforce Deployments: Pure Unit Testing</h1>
+<p>In Salesforce development, Apex unit tests are key to reliable deployments. Yet, many tests aren&rsquo;t true unit tests. They rely on database operations, insert records, and trigger Salesforce&rsquo;s order of execution.
+This means your Apex unit test also tests flows, validation rules, and more. It&rsquo;s an integration test disguised as a unit test. Today, we&rsquo;ll explore this problem and how to write pure unit tests that test your Apex logic in isolation.
+With this simple change in mindset, you can dramatically improve your unit test execution time and keep your business happy! After reading this article, you&rsquo;ll be eager to join the pure unit testing movement - share your experiences!</p>
+<h2 id=the-problem-with-integration-tests-masquerading-as-unit-tests>The Problem with Integration Tests Masquerading as Unit Tests</h2>
+<p>When Apex tests perform DML operations, they tie themselves to Salesforce&rsquo;s order of execution. Changes to validation rules, flows, or duplicate rules can break these tests, even if your Apex code is unchanged.</p>
+<p><a href=https://architect.salesforce.com/view/MCOOL7W3TDDVFZZGSTXP7SLSI6NI>
+<img src=/images/posts/2025/pure-unit-testing/order-of-execution.png alt="Salesforce Order of Execution, showing the 20 steps that happen when you save a record in Salesforce.">
+</a>
+<em>In the above image you can see the Order of Execution, where the actual Apex execution is highlighted. Executing DML will run through all steps instead of only the business logic to test.</em></p>
+<p>This leads to unpredictability. Tests become slow, brittle, and hard to maintain. Also, increased test execution time impacts development cycles and deployments. As you add tests, the cutover phase during go-live lengthens, delaying releases and increasing risk. Long test suites extend cutover times, delaying releases.</p>
+<h2 id=what-is-a-pure-unit-test-and-how-to-write-them>What is a Pure Unit Test and How to Write Them</h2>
+<p>A pure unit test isolates and tests a single class or method, free from outside dependencies like the database. Mocking dependencies is crucial for this isolation. The benefits: faster execution, predictable results, easier debugging, and better maintenance. By focusing on logic, not data persistence, you create robust and reliable tests.</p>
+<p>The speed of pure unit tests enables you to write more of them. This reduces the need for lengthy integration tests or manual testing. Shifting testing earlier in the development process, known as &ldquo;shift left,&rdquo; allows you to find bugs sooner. Early bug detection reduces the cost of fixing issues later in the lifecycle. Not only does this save time and money by finding problems earlier, but it also minimises the expense of late-stage bug fixes.</p>
+<p>
+<img src=/images/posts/2025/pure-unit-testing/shift-left-model.png alt="Visual showing the shift left model, indicating a higher attention to quality early on in the lifecycle (design &amp;amp; build).">
+</p>
+<p>For a detailed walkthrough and code examples, I highly recommend Mitch Spano&rsquo;s blog post, &lsquo;Pure Unit Testing in Apex&rsquo;.
+Mitch&rsquo;s post highlights ways to improve test performance and achieve purity:</p>
+<ul>
+<li>Use fake record IDs to bypass database lookups, speeding up tests.</li>
+<li>Use mockable query methods to control SOQL results in tests.</li>
+<li>Decouple code from dependencies for easier mocking and testing.</li>
+</ul>
+<p>By using these techniques, you can write Apex unit tests that are faster, more reliable, and easier to maintain.</p>
+<h2 id=addressing-common-objections>Addressing Common Objections</h2>
+<p>Developers often worry about the practicality of pure unit testing. Common concerns: testing the whole flow, the complexity of mocking, and tightly coupled code. Let&rsquo;s address these concerns.</p>
+<h3 id=testing-the-entire-flow>Testing the entire flow</h3>
+<p>Integration tests are still useful, and Apex tests can be used for them. However, keep them separate from unit tests. Use integration tests to verify interactions between components, but keep unit tests focused on individual code units.</p>
+<p>This is a typical issue in Salesforce implementations: all tests are integration tests, and barely any tests are pure unit tests. This means that you&rsquo;re missing out on a huge benefit from testing early, i.e. shifting left. You&rsquo;re also pushing the majority of testing into a slower form of testing. This approach should be avoided at all costs.</p>
+<p>
+<img src=/images/posts/2025/pure-unit-testing/testing-strategy.png alt="Pyramid showing unit testing at the bottom, integration testing at the middle, UI testing at the top. Arrows indicating the lower part of the pyramid is faster &amp;amp; more isolated. The lower in the pyramid, the higher the number of tests">
+<em>The above image shows an overview of how integrations tests and unit tests can be combined in the best way.</em></p>
+<h3 id=mocking-is-complex>Mocking is complex</h3>
+<p>Mocking is a skill to learn. Start with simple examples, removing one DML operation at a time, which can help. The <a href=https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_testing_unit_tests_mocks.htm>Salesforce Apex Testing Documentation</a> is extremely helpful. Use mocking frameworks like <a href=https://developer.salesforce.com/blogs/2023/06/introducing-apex-mockery-a-unit-test-mocking-library>Apex Mockery</a> or the <a href=https://github.com/apex-enterprise-patterns/fflib-apex-mocks>ffLib Mocking framework</a> to speed up development.</p>
+<p>Improve gradually. Don&rsquo;t apply mocking everywhere and all at once, you will go crazy. Tackle it one step, one method, one class at a time and improve steadily rather than all at once.</p>
+<h3 id=tightly-coupled-code>Tightly coupled code</h3>
+<p>Your Apex code might directly instantiate another class or directly perform SOQL queries within its methods, making it difficult to isolate for testing. It&rsquo;s crucial to refactor your code to decouple dependencies. As with mocking, don&rsquo;t try to tackle everything at once. Use the principle of &ldquo;leave it cleaner than you found it&rdquo;: when you change a piece of code, improve it by reducing the tight coupling. Use design patterns like dependency injection, interfaces or service layer to achieve this.</p>
+<p><strong>Dependency injection</strong> will pass the dependencies into the class Instead of a class creating its dependencies internally. This allows you to inject mock implementations during testing.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=kd>public</span> <span class=kd>class</span> <span class=nc>OrderService</span> <span class=o>{</span>
+<span class=kd>private</span> <span class=n>AccountDao</span> <span class=n>accountDao</span><span class=o>;</span>
+
+    <span class=kd>public</span> <span class=nf>OrderService</span><span class=o>(</span><span class=n>AccountDao</span> <span class=n>dao</span><span class=o>)</span> <span class=o>{</span> <span class=c1>// Dependency passed in
+</span><span class=c1></span>        <span class=k>this</span><span class=o>.</span><span class=na>accountDao</span> <span class=o>=</span> <span class=n>dao</span><span class=o>;</span>
+    <span class=o>}</span>
+
+    <span class=kd>public</span> <span class=n>Account</span> <span class=nf>getAccountInfo</span><span class=o>(</span><span class=n>Id</span> <span class=n>accountId</span><span class=o>)</span> <span class=o>{</span>
+        <span class=k>return</span> <span class=n>accountDao</span><span class=o>.</span><span class=na>getAccount</span><span class=o>(</span><span class=n>accountId</span><span class=o>);</span>
+    <span class=o>}</span>
+
+<span class=o>}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><strong>Interfaces</strong> hide the concrete implementation details and allow your classes to depend instead on the abstract interface.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=kd>public</span> <span class=kd>class</span> <span class=nc>FileLogger</span> <span class=kd>implements</span> <span class=n>Log</span> <span class=o>{</span>
+<span class=kd>public</span> <span class=kt>void</span> <span class=nf>writeLog</span><span class=o>(</span><span class=n>String</span> <span class=n>message</span><span class=o>)</span> <span class=o>{</span>
+<span class=c1>// ... write to file ...
+</span><span class=c1></span><span class=o>}</span>
+<span class=o>}</span>
+
+<span class=kd>public</span> <span class=kd>class</span> <span class=nc>Logger</span> <span class=o>{</span>
+<span class=kd>private</span> <span class=n>Log</span> <span class=n>logger</span><span class=o>;</span>
+
+    <span class=kd>public</span> <span class=nf>Logger</span><span class=o>(</span><span class=n>Log</span> <span class=n>logImpl</span><span class=o>)</span> <span class=o>{</span> <span class=c1>// Dependency on interface
+</span><span class=c1></span>        <span class=k>this</span><span class=o>.</span><span class=na>logger</span> <span class=o>=</span> <span class=n>logImpl</span><span class=o>;</span>
+    <span class=o>}</span>
+
+    <span class=kd>public</span> <span class=kt>void</span> <span class=nf>log</span><span class=o>(</span><span class=n>String</span> <span class=n>message</span><span class=o>)</span> <span class=o>{</span>
+        <span class=n>logger</span><span class=o>.</span><span class=na>writeLog</span><span class=o>(</span><span class=n>message</span><span class=o>);</span>
+    <span class=o>}</span>
+
+<span class=o>}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><strong>Service Layer Pattern</strong> allows you to separate your database logic from your business logic, creating independence between several layers.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=kd>public</span> <span class=kd>class</span> <span class=nc>AccountService</span> <span class=o>{</span>
+<span class=kd>private</span> <span class=n>AccountDao</span> <span class=n>accountDao</span> <span class=o>=</span> <span class=k>new</span> <span class=n>AccountDao</span><span class=o>();</span>
+
+    <span class=kd>public</span> <span class=kt>void</span> <span class=nf>updateAccountDescription</span><span class=o>(</span><span class=n>Id</span> <span class=n>accountId</span><span class=o>,</span> <span class=n>String</span> <span class=n>newDescription</span><span class=o>)</span> <span class=o>{</span>
+        <span class=n>Account</span> <span class=n>acc</span> <span class=o>=</span> <span class=n>accountDao</span><span class=o>.</span><span class=na>getAccount</span><span class=o>(</span><span class=n>accountId</span><span class=o>);</span> <span class=c1>// Delegate data access
+</span><span class=c1></span>        <span class=n>acc</span><span class=o>.</span><span class=na>Description</span> <span class=o>=</span> <span class=n>newDescription</span><span class=o>;</span> <span class=c1>// Business logic
+</span><span class=c1></span>        <span class=n>accountDao</span><span class=o>.</span><span class=na>updateAccount</span><span class=o>(</span><span class=n>acc</span><span class=o>);</span> <span class=c1>// Delegate data access
+</span><span class=c1></span>    <span class=o>}</span>
+
+<span class=o>}</span>
+
+<span class=kd>public</span> <span class=kd>class</span> <span class=nc>AccountDao</span> <span class=o>{</span>
+<span class=kd>public</span> <span class=n>Account</span> <span class=nf>getAccount</span><span class=o>(</span><span class=n>Id</span> <span class=n>accountId</span><span class=o>)</span> <span class=o>{</span>
+<span class=k>return</span> <span class=o>[</span><span class=n>SELECT</span> <span class=n>Id</span><span class=o>,</span> <span class=n>Description</span> <span class=n>FROM</span> <span class=n>Account</span> <span class=n>WHERE</span> <span class=n>Id</span> <span class=o>=</span> <span class=o>:</span><span class=n>accountId</span><span class=o>];</span>
+<span class=o>}</span>
+
+    <span class=kd>public</span> <span class=kt>void</span> <span class=nf>updateAccount</span><span class=o>(</span><span class=n>Account</span> <span class=n>acc</span><span class=o>)</span> <span class=o>{</span>
+        <span class=n>update</span> <span class=n>acc</span><span class=o>;</span>
+    <span class=o>}</span>
+
+<span class=o>}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>You&rsquo;ll make your Apex code more modular, maintainable, and easier to test with pure unit tests once you apply these techniques.</p>
+<h2 id=conclusion-embrace-pure-unit-testing-for-robust-salesforce-development>Conclusion: Embrace Pure Unit Testing for Robust Salesforce Development</h2>
+<p>Pure unit testing is essential for strong Salesforce applications. Unit tests verify individual components, while integration tests validate interactions between them. It provides faster test execution, predictable results, and easier debugging, which leads to quicker development cycles. Additionally, by &ldquo;shifting left&rdquo; and finding bugs earlier, you reduce costs and improve quality.</p>
+<p>Start by adopting pure unit testing today! Look at your longest-running tests and see where you can remove DML statements, or just improve the code that you touch. Slow and steady wins the race.</p>
+</div>
+<div class=post__footer>
+<span><a class=tag href=/tags/apex/>apex</a><a class=tag href=/tags/unit-testing/>unit testing</a><a class=tag href=/tags/unit/>unit</a><a class=tag href=/tags/testing/>testing</a><a class=tag href=/tags/pure/>pure</a><a class=tag href=/tags/shift-left/>shift left</a><a class=tag href=/tags/deployment/>deployment</a><a class=tag href=/tags/performance/>performance</a><a class=tag href=/tags/dependency-injection/>dependency injection</a><a class=tag href=/tags/mocking/>mocking</a></span>
+</div>
+</div>
+</main>
+</div><footer class="footer footer__base">
+<ul class=footer__list>
+<li class=footer__item>
+&copy;
+2025 Nicolas Vanden Bossche
+</li>
+</ul>
+</footer></body>
+</html>
