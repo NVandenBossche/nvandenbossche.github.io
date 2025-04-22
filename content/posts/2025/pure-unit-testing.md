@@ -19,9 +19,11 @@ summary: "Write pure Apex unit tests that are isolated from the database and ext
 draft: false
 ---
 
-In Salesforce development, Apex unit tests are key to reliable deployments. Yet, many tests aren't true unit tests. They rely on database operations, insert records, and trigger Salesforce's order of execution.
-This means your Apex unit test also tests flows, validation rules, and more. It's an integration test disguised as a unit test. Today, we'll explore this problem and how to write pure unit tests that test your Apex logic in isolation.
-With this simple change in mindset, you can dramatically improve your unit test execution time and keep your business happy! After reading this article, you'll be eager to join the pure unit testing movement - share your experiences!
+In Salesforce development, Apex unit tests are key to reliable deployments. Yet, many tests aren't true unit tests. They rely on database operations, insert records, and trigger Salesforce's order of execution. This means your Apex unit test also tests flows, validation rules, and more. It's an integration test disguised as a unit test. Today, we'll explore this problem and how to write pure unit tests that test your Apex logic in isolation.
+
+With this simple change in mindset, you can dramatically improve your unit test execution time and keep your business happy! After reading this article, you'll be eager to join the pure unit testing movement. Feel free to share your experience with me.
+
+![Pure Unit Testing, by Nicolas Vanden Bossche](/images/posts/2025/pure-unit-testing/pure-unit-testing-title-image.png)
 
 ## The Problem with Integration Tests Masquerading as Unit Tests
 
