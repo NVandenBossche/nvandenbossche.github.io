@@ -41,7 +41,7 @@ Nicolas Vanden Bossche
       
 
 
-    ","inLanguage":"en-us","isFamilyFriendly":"true","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/nicolasvandenbossche.com\/posts\/2025\/pure-unit-testing\/"},"author":{"@type":"Person","name":"Nicolas Vanden Bossche"},"creator":{"@type":"Person","name":"Nicolas Vanden Bossche"},"accountablePerson":{"@type":"Person","name":"Nicolas Vanden Bossche"},"copyrightHolder":{"@type":"Person","name":"Nicolas Vanden Bossche"},"copyrightYear":"2025","dateCreated":"2025-04-22T11:34:01.00Z","datePublished":"2025-04-22T11:34:01.00Z","dateModified":"2025-04-22T11:34:01.00Z","publisher":{"@type":"Organization","name":"Nicolas Vanden Bossche","url":"https://nicolasvandenbossche.com/","logo":{"@type":"ImageObject","url":"https:\/\/nicolasvandenbossche.com\/favicons\/favicon-32x32.png","width":"32","height":"32"}},"image":[],"url":"https:\/\/nicolasvandenbossche.com\/posts\/2025\/pure-unit-testing\/","wordCount":"1127","genre":[],"keywords":["apex","unit testing","unit","testing","pure","shift left","deployment","performance","dependency injection","mocking"]}</script>
+    ","inLanguage":"en-us","isFamilyFriendly":"true","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/nicolasvandenbossche.com\/posts\/2025\/pure-unit-testing\/"},"author":{"@type":"Person","name":"Nicolas Vanden Bossche"},"creator":{"@type":"Person","name":"Nicolas Vanden Bossche"},"accountablePerson":{"@type":"Person","name":"Nicolas Vanden Bossche"},"copyrightHolder":{"@type":"Person","name":"Nicolas Vanden Bossche"},"copyrightYear":"2025","dateCreated":"2025-04-22T11:34:01.00Z","datePublished":"2025-04-22T11:34:01.00Z","dateModified":"2025-04-22T11:34:01.00Z","publisher":{"@type":"Organization","name":"Nicolas Vanden Bossche","url":"https://nicolasvandenbossche.com/","logo":{"@type":"ImageObject","url":"https:\/\/nicolasvandenbossche.com\/favicons\/favicon-32x32.png","width":"32","height":"32"}},"image":[],"url":"https:\/\/nicolasvandenbossche.com\/posts\/2025\/pure-unit-testing\/","wordCount":"1131","genre":[],"keywords":["apex","unit testing","unit","testing","pure","shift left","deployment","performance","dependency injection","mocking"]}</script>
 </head>
 <body class="body theme--dark">
 <div class=wrapper>
@@ -123,9 +123,11 @@ animated fadeInDown">
 animated fadeInDown">
 <div class=post__content>
 <h1>The Secret to Reliable Salesforce Deployments: Pure Unit Testing</h1>
-<p>In Salesforce development, Apex unit tests are key to reliable deployments. Yet, many tests aren&rsquo;t true unit tests. They rely on database operations, insert records, and trigger Salesforce&rsquo;s order of execution.
-This means your Apex unit test also tests flows, validation rules, and more. It&rsquo;s an integration test disguised as a unit test. Today, we&rsquo;ll explore this problem and how to write pure unit tests that test your Apex logic in isolation.
-With this simple change in mindset, you can dramatically improve your unit test execution time and keep your business happy! After reading this article, you&rsquo;ll be eager to join the pure unit testing movement - share your experiences!</p>
+<p>In Salesforce development, Apex unit tests are key to reliable deployments. Yet, many tests aren&rsquo;t true unit tests. They rely on database operations, insert records, and trigger Salesforce&rsquo;s order of execution. This means your Apex unit test also tests flows, validation rules, and more. It&rsquo;s an integration test disguised as a unit test. Today, we&rsquo;ll explore this problem and how to write pure unit tests that test your Apex logic in isolation.</p>
+<p>With this simple change in mindset, you can dramatically improve your unit test execution time and keep your business happy! After reading this article, you&rsquo;ll be eager to join the pure unit testing movement. Feel free to share your experience with me.</p>
+<p>
+<img src=/images/posts/2025/pure-unit-testing/pure-unit-testing-title-image.png alt="Pure Unit Testing, by Nicolas Vanden Bossche">
+</p>
 <h2 id=the-problem-with-integration-tests-masquerading-as-unit-tests>The Problem with Integration Tests Masquerading as Unit Tests</h2>
 <p>When Apex tests perform DML operations, they tie themselves to Salesforce&rsquo;s order of execution. Changes to validation rules, flows, or duplicate rules can break these tests, even if your Apex code is unchanged.</p>
 <p><a href=https://architect.salesforce.com/view/MCOOL7W3TDDVFZZGSTXP7SLSI6NI>
